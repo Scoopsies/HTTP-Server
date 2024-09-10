@@ -12,18 +12,18 @@ public class ArgParser {
 
         for (int i = 0; i < args.length; i++) {
             if (Objects.equals(args[i], "-p"))
-                port = (Integer.parseInt(args[i + 1]));
+                this.port = (Integer.parseInt(args[i + 1]));
 
             if (Objects.equals(args[i], "-r"))
-                root = (args[i + 1]);
+                this.root = (args[i + 1]);
 
             if (Objects.equals(args[i], "-h")) {
-                isRunnable = false;
+                this.isRunnable = false;
                 Printables.printHelpMenu();
             }
 
             if (Objects.equals(args[i], "-x")) {
-                isRunnable = false;
+                this.isRunnable = false;
                 isPrintingConfig = true;
             }
         }
@@ -33,14 +33,14 @@ public class ArgParser {
     }
 
     public String getRoot() {
-        return root;
+        return this.root;
     }
 
     public int getPort() {
-        return port;
+        return this.port;
     }
 
     public boolean getRunStatus() {
-        return isRunnable;
+        return this.isRunnable;
     }
 }

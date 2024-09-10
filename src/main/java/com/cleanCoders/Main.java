@@ -7,8 +7,8 @@ public class Main {
         Router router = new Router();
         ArgParser parsedArgs = new ArgParser();
 
-        String[] testArgs = {"-r", "./testRoot"};
-        parsedArgs.parseArgs(testArgs);
+//        String[] testArgs = {"-r", "./testRoot"};
+        parsedArgs.parseArgs(args);
 
         router.setDefaultRoot(parsedArgs.getRoot());
         router.addRoute("/hello", new HelloRouteHandler());

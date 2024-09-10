@@ -9,9 +9,7 @@ import java.io.IOException;
 
 
 public class ListingRouteHandler implements RouteHandler {
-    String root = ".";
-
-    public ListingRouteHandler(){}
+    String root;
 
     public ListingRouteHandler(String root){
         this.root = root;
@@ -19,7 +17,7 @@ public class ListingRouteHandler implements RouteHandler {
 
     @Override
     public byte[] handle(HttpRequest request) throws IOException {
-        String filePath = request.get("path").replace("/listing", ".");
+        String filePath = request.get("path").replace("/listing", root);
         ResponseBuilder rb = new ResponseBuilder();
         DirectoryBuilder db = new DirectoryBuilder();
 

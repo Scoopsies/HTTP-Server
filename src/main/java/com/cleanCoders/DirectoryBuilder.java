@@ -6,10 +6,10 @@ import java.io.IOException;
 public class DirectoryBuilder {
 
     public String build(File directory, String root) throws IOException {
-        var listing = directory.list();
-        var rootPath = new File(root).getCanonicalPath();
-        var path = directory.getCanonicalPath().replace(rootPath, ".");
-        var stringBuilder = new StringBuilder();
+        String[] listing = directory.list();
+        String rootPath = new File(root).getCanonicalPath();
+        String path = directory.getCanonicalPath().replace(rootPath, ".");
+        StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append("<h1>Directory Listing for ");
         stringBuilder.append(path);
