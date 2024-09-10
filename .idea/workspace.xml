@@ -9,14 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Added additional tests for formRoute, and gave QueryParser its own class.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" afterDir="false" />
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Updated ListingRouteHandler to select the proper route instead of hardcoding it.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/GuessRouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/GuessRouteHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArgParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArgParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/DirectoryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/DirectoryBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandler.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +51,7 @@
     "JUnit.FileContentTest.executor": "Run",
     "JUnit.FormRouteHandlerTest.executor": "Run",
     "JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected.executor": "Run",
+    "JUnit.GuessRouteHandlerTest.executor": "Run",
     "JUnit.HelloRouteHandlerTest.executor": "Run",
     "JUnit.HttpRequestTest.executor": "Run",
     "JUnit.HttpRequestTest.getRequestIsGettingWholeRequest.executor": "Run",
@@ -103,7 +101,7 @@
       <recent name="com.cleanCoders" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ListingRouteHandlerTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cleanCoders.Main" />
       <module name="HttpServer" />
@@ -147,21 +145,6 @@
       <setting name="urlFile" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ArgParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HttpServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cleanCoders.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cleanCoders" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ArgParserTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FormRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
@@ -193,6 +176,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GuessRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.routes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.GuessRouteHandlerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ListingRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
@@ -210,11 +208,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ListingRouteHandlerTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.GuessRouteHandlerTest" />
+        <item itemvalue="JUnit.ListingRouteHandlerTest" />
         <item itemvalue="JUnit.FormRouteHandlerTest" />
         <item itemvalue="JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected" />
-        <item itemvalue="JUnit.ArgParserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -243,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725987703455</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated ListingRouteHandler to select the proper route instead of hardcoding it.">
+      <option name="closed" value="true" />
+      <created>1725995715241</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725995715241</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,6 +266,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit." />
     <MESSAGE value="Added additional tests for formRoute, and gave QueryParser its own class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added additional tests for formRoute, and gave QueryParser its own class." />
+    <MESSAGE value="Updated ListingRouteHandler to select the proper route instead of hardcoding it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated ListingRouteHandler to select the proper route instead of hardcoding it." />
   </component>
 </project>

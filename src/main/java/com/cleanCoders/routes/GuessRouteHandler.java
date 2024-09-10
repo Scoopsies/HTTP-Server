@@ -61,11 +61,13 @@ public class GuessRouteHandler implements RouteHandler {
         String lowHigh;
         int guessesLeft = 7 - guesses;
 
-        if (answer == guess) {
+        if (answer == guess)
             return answer + " is correct. You win! I've picked a new number.";
-        } else if (guessesLeft == 0) {
+
+        if (guessesLeft == 0)
             return "The answer was " + answer +". You lose. The answer has been reset.";
-        } else if (guess > answer) {
+
+        if (guess > answer) {
             lowHigh = "high";
         } else {
             lowHigh = "low";
