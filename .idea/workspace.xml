@@ -10,60 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Initial Commit.">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HttpServer_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArgParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/DirectoryBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Printables.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/QueryParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/RouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Router.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/DefaultRouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/HelloRouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/PingRouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ArgParserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/DirectoryBuilderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/HttpRequestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/PrintablesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/QueryParserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ResponseBuilderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/RouterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/HelloRouteHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/404/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/form/getTemplate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/goodbye/goodbye2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/goodbye/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/guess/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/hello/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/hello/miata.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/noIndex/notIndex.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/noIndex/text.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/ping/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +48,8 @@
     "JUnit.DefaultRouteHandlerTest.getContentTypeReturnsHTML.executor": "Run",
     "JUnit.DirectoryBuilderTest.executor": "Run",
     "JUnit.FileContentTest.executor": "Run",
+    "JUnit.FormRouteHandlerTest.executor": "Run",
+    "JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected.executor": "Run",
     "JUnit.HelloRouteHandlerTest.executor": "Run",
     "JUnit.HttpRequestTest.executor": "Run",
     "JUnit.HttpRequestTest.getRequestIsGettingWholeRequest.executor": "Run",
@@ -147,7 +98,7 @@
       <recent name="com.cleanCoders" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.FormRouteHandlerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cleanCoders.Main" />
       <module name="HttpServer" />
@@ -222,43 +173,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DirectoryBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FormRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="PATTERN" value="com.cleanCoders.routes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.cleanCoders" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.DirectoryBuilderTest" />
+      <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.FormRouteHandlerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HelloRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FormRouteHandlerTest.helloRouteRespondsAsExpected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="PATTERN" value="com.cleanCoders.routes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.HelloRouteHandlerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.FormRouteHandlerTest" />
+      <option name="METHOD_NAME" value="helloRouteRespondsAsExpected" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FormRouteHandlerTest" />
+        <item itemvalue="JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ArgParserTest" />
         <item itemvalue="JUnit.ArgParserTest.parseArgsSetsPort8080" />
-        <item itemvalue="JUnit.DirectoryBuilderTest" />
-        <item itemvalue="JUnit.HelloRouteHandlerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -271,6 +223,15 @@
       <option name="presentableId" value="Default" />
       <updated>1725816731971</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit.">
+      <option name="closed" value="true" />
+      <created>1725986879266</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725986879266</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
