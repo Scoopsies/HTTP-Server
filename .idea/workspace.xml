@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="HttpServer:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Initial Commit.">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HttpServer_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArgParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/DirectoryBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Printables.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/QueryParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/RouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Router.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/DefaultRouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/HelloRouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/PingRouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ArgParserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/DirectoryBuilderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/HttpRequestTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/PrintablesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/QueryParserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ResponseBuilderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/RouterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/HelloRouteHandlerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/404/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/form/getTemplate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/goodbye/goodbye2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/goodbye/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/guess/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/hello/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/hello/miata.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/noIndex/notIndex.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/noIndex/text.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/ping/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testRoot/things/miata.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2lnXIAMq9dDGCPvv3PsoDBmKVtc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.ArgParserTest.executor": "Run",
+    "JUnit.ArgParserTest.parseArgsSetsPort8080.executor": "Run",
+    "JUnit.DefaultRouteHandlerTest.executor": "Run",
+    "JUnit.DefaultRouteHandlerTest.getContentTypeReturnsHTML.executor": "Run",
+    "JUnit.DirectoryBuilderTest.executor": "Run",
+    "JUnit.FileContentTest.executor": "Run",
+    "JUnit.HelloRouteHandlerTest.executor": "Run",
+    "JUnit.HttpRequestTest.executor": "Run",
+    "JUnit.HttpRequestTest.getRequestIsGettingWholeRequest.executor": "Run",
+    "JUnit.HttpRequestTest.parseRequestPutsMethodInMap.executor": "Run",
+    "JUnit.HttpRequestTest.parseRequestPutsServerInMap.executor": "Run",
+    "JUnit.HttpRequestTest.parseRequestPutsTargetInMap.executor": "Run",
+    "JUnit.HttpResponseTest.executor": "Run",
+    "JUnit.HttpResponseTest.getContentTypeReturnsHTML.executor": "Run",
+    "JUnit.HttpResponseTest.getDirectoryListingFor404.executor": "Run",
+    "JUnit.HttpResponseTest.getDirectoryListingForThings.executor": "Run",
+    "JUnit.HttpResponseTest.getResponseIf404.executor": "Run",
+    "JUnit.ParseArgsTest.executor": "Run",
+    "JUnit.ParseArgsTest.parseArgsSetsPort800.executor": "Run",
+    "JUnit.ParseArgsTest.parseArgsSetsPort8080.executor": "Run",
+    "JUnit.ParseArgsTest.parseArgsSetsRootToHello.executor": "Run",
+    "JUnit.PingRouteHandlerTest.executor": "Run",
+    "JUnit.PrintablesTest.executor": "Run",
+    "JUnit.PrintablesTest.printHelpMenuPrintsTheDefaultConfigMenu.executor": "Run",
+    "JUnit.PrintablesTest.printHelpMenuPrintsTheHelpMenu.executor": "Run",
+    "JUnit.ResponseBuilderTest.buildResponseStatusReturnsCorrectStatusLine.executor": "Run",
+    "JUnit.ResponseBuilderTest.buildResponseWithDefaultStatusAndDefaultContentType.executor": "Run",
+    "JUnit.ResponseBuilderTest.buildResponseWithOnlyContent.executor": "Run",
+    "JUnit.ResponseBuilderTest.executor": "Run",
+    "JUnit.RouterTest.executor": "Run",
+    "JUnit.RouterTest.getPathRootExtractsCorrectPath.executor": "Run",
+    "JUnit.ServerTest.executor": "Run",
+    "JUnit.ServerTest.localSocketAddressCreated.executor": "Run",
+    "JUnit.ServerTest.runListensForAConnection.executor": "Run",
+    "JUnit.ServerTest.serverSocketCreatedAtPort80byDefault.executor": "Run",
+    "JUnit.ServerTest.stopClosesTheConnectionToPort.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/scoops/Projects/HttpServer/testRoot",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/testRoot" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.cleanCoders" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.Main" />
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <option name="configVersion" value="1" />
+      <option name="options" />
+      <option name="profiles" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <setting name="urlFile" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ArgParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ArgParserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArgParserTest.parseArgsSetsPort8080" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ArgParserTest" />
+      <option name="METHOD_NAME" value="parseArgsSetsPort8080" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DirectoryBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.DirectoryBuilderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.HelloRouteHandlerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ArgParserTest" />
+        <item itemvalue="JUnit.ArgParserTest.parseArgsSetsPort8080" />
+        <item itemvalue="JUnit.DirectoryBuilderTest" />
+        <item itemvalue="JUnit.HelloRouteHandlerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="" />
+      <created>1725816731971</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725816731971</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit." />
+  </component>
+</project>
