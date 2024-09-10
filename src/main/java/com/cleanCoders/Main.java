@@ -15,6 +15,7 @@ public class Main {
         router.addRoute("/ping", new PingRouteHandler());
         router.addRoute("/listing", new ListingRouteHandler(parsedArgs.getRoot()));
         router.addRoute("/form", new FormRouteHandler());
+        router.addRoute("/guess", new GuessRouteHandler());
 
         Server server = new Server(router, parsedArgs.getPort(), parsedArgs.getRoot());
 
