@@ -11,36 +11,31 @@ import java.util.Objects;
 public class GuessRouteHandler implements RouteHandler {
     @Override
     public byte[] handle(HttpRequest request) throws IOException {
-        if (Objects.equals("GET", request.get("method")))
-            return handleGetRequest();
 
-        return handlePostRequest(request);
-    }
+        if (Objects.equals("GET", request.get("method"))){
+            String answerCookie = createCookie("answer", (int)(Math.random() * 100 + 1));
+            String guessesCookie = createCookie("guesses", 0);
+            String message = "";
 
-    private byte[] handleGetRequest() throws IOException {
-        String answerCookie = createCookie("answer", (int)(Math.random() * 100 + 1));
-        String guessesCookie = createCookie("guesses", 0);
-        String message = "";
+            return buildGuessResponse(answerCookie, guessesCookie, message).getBytes();
 
-        return buildGuessResponse(answerCookie, guessesCookie, message).getBytes();
-    }
+        } else {
+            HashMap<String, Integer> cookieMap = parseCookie(request.get("Cookie"));
+            int guess = getGuess(request.get("body"));
+            int answer = cookieMap.get("answer");
+            int guesses = cookieMap.get("guesses") + 1;
+            String message = getMessage(answer, guess, guesses);
 
-    private byte[] handlePostRequest(HttpRequest request) throws IOException {
-        HashMap<String, Integer> cookieMap = parseCookie(request.get("Cookie"));
-        int guess = getGuess(request.get("body"));
-        int answer = cookieMap.get("answer");
-        int guesses = cookieMap.get("guesses") + 1;
-        String message = getMessage(answer, guess, guesses);
+            if (guesses > 7 || guess == answer) {
+                guesses = 0;
+                answer = (int)(Math.random() * 100 + 1);
+            }
 
-        if (guesses > 6 || guess == answer) {
-            guesses = 0;
-            answer = (int)(Math.random() * 100 + 1);
+            String answerCookie = createCookie("answer", answer);
+            String guessesCookie = createCookie("guesses", guesses);
+
+            return buildGuessResponse(answerCookie, guessesCookie, message).getBytes();
         }
-
-        String answerCookie = createCookie("answer", answer);
-        String guessesCookie = createCookie("guesses", guesses);
-
-        return buildGuessResponse(answerCookie, guessesCookie, message).getBytes();
     }
 
     public String createCookie(String key, int value) {
