@@ -16,10 +16,11 @@ public class HttpRequestTest {
                 Content-Type: text/html\r
                 Server: httpServer1.1\r
                 Content-Type: image/jpg\r
+                Content-Length: 53\r
                 \r
-                <h2>GET Form</h2>
-                <li>foo: 1</li>
-                <li>bar: 2</li>
+                <h2>GET Form</h2>\r
+                <li>foo: 1</li>\r
+                <li>bar: 2</li>\r
                 """;
 
     @BeforeEach
@@ -34,7 +35,9 @@ public class HttpRequestTest {
                 GET /hello HTTP/1.1\r
                 Content-Type: text/html\r
                 Server: httpServer1.1\r
-                Content-Type: image/jpg""";
+                Content-Type: image/jpg\r
+                Content-Length: 53\r
+                """;
         assertEquals(header, httpRequest.get("header"));
     }
 
@@ -47,9 +50,9 @@ public class HttpRequestTest {
     @Test
     void parseRequestPutsBodyInMap() {
         var body = """
-                <h2>GET Form</h2>
-                <li>foo: 1</li>
-                <li>bar: 2</li>
+                <h2>GET Form</h2>\r
+                <li>foo: 1</li>\r
+                <li>bar: 2</li>\r
                 """;
 
         assertEquals(body, httpRequest.get("body"));
@@ -77,5 +80,13 @@ public class HttpRequestTest {
     void parseRequestPutsContentTypeInMap() {
         var server = "image/jpg";
         assertEquals(server, httpRequest.get("Content-Type"));
+    }
+
+    @Test
+    void getRequestReadsGetRequest() {
+        httpRequest = new HttpRequest();
+        ByteArrayInputStream bais = new ByteArrayInputStream(request.getBytes());
+        String result = httpRequest.getRequest(bais);
+        assertEquals(request, result);
     }
 }
