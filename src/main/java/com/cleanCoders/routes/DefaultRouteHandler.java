@@ -22,7 +22,6 @@ public class DefaultRouteHandler implements RouteHandler {
 
 
     public byte[] getResponse(HttpRequest request, String root) throws IOException {
-        System.out.println("Root: " + root);
         String filePath = request.get("path");
         File indexHTML = new File(root + filePath + "/index.html");
         File file = new File(root + filePath);
