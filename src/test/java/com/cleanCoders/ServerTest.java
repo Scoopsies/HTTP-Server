@@ -1,9 +1,10 @@
 package com.cleanCoders;
 
+import com.cleanCoders.routes.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +14,13 @@ public class ServerTest {
 
     @BeforeEach
     void setup() {
-        server = new Server();
+        Router router = new Router();
+        router.addRoute("/hello", new HelloRouteHandler());
+        router.addRoute("/ping", new PingRouteHandler());
+        router.addRoute("/listing", new ListingRouteHandler("."));
+        router.addRoute("/form", new FormRouteHandler());
+        router.addRoute("/guess", new GuessRouteHandler());
+        server = new Server(router, 80, ".");
     }
 
     @Test
@@ -54,5 +61,29 @@ public class ServerTest {
         assertFalse(server.getSocket().isClosed());
         server.stop();
         assertTrue(server.getSocket().isClosed());
+    }
+
+    @Test
+    void handleInOutReturnsHelloRequest() throws IOException {
+        InputStream in = new ByteArrayInputStream("GET /hello HTTP/1.1\r\n".getBytes());
+        OutputStream out = new ByteArrayOutputStream();
+        server.handleInOut(in, out);
+        assertTrue(out.toString().contains("<h1>Hello!</h1>"));
+    }
+
+    @Test
+    void handleInOutReturnsGuessRequest() throws IOException {
+        InputStream in = new ByteArrayInputStream("GET /guess HTTP/1.1\r\n".getBytes());
+        OutputStream out = new ByteArrayOutputStream();
+        server.handleInOut(in, out);
+        assertTrue(out.toString().contains("<h1>Guessing Game</h1>"));
+    }
+
+    @Test
+    void handleInOutReturnsPingRequest() throws IOException {
+        InputStream in = new ByteArrayInputStream("GET /ping HTTP/1.1\r\n".getBytes());
+        OutputStream out = new ByteArrayOutputStream();
+        server.handleInOut(in, out);
+        assertTrue(out.toString().contains("<h2>Ping</h2>"));
     }
 }
