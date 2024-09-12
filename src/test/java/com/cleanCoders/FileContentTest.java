@@ -33,4 +33,12 @@ public class FileContentTest {
         assertFalse(fileContent.isTextFile("jpg"), "Files with .jpg extension should not be recognized as text files");
         assertFalse(fileContent.isTextFile("pdf"), "Files with .pdf extension should not be recognized as text files");
     }
+
+    @Test
+    public void testGetResourceTextFileContent_ValidResource() throws IOException {
+        FileContent fileContent = new FileContent();
+        String result = fileContent.getResourceTextFileContent("404/index.html");
+        assertNotNull(result);
+        assertEquals("<h1>404: This isn't the directory you are looking for.</h1>\n", result);
+    }
 }
