@@ -11,7 +11,7 @@ public class PingRouteHandler implements RouteHandler {
     @Override
     public byte[] handle(HttpRequest request) throws IOException {
         String filePath = request.get("path");
-        String template = new FileContent().getTextFileContent("/Users/scoops/Projects/HttpServer/testRoot/ping/index.html");
+        String template = new FileContent().getResourceTextFileContent("ping/index.html");
         String sleepModifier = filePath.replace("/ping/", "");
         ResponseBuilder rb = new ResponseBuilder();
         int timeToSleep;

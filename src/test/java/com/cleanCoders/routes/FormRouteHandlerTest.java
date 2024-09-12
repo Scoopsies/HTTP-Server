@@ -7,6 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FormRouteHandlerTest {
 
@@ -69,5 +70,35 @@ public class FormRouteHandlerTest {
             """;
 
         assertEquals(expected, new String(result));
+    }
+
+    @Test
+    void formPostContainsAFormPostHeader() throws IOException {
+        FormRouteHandler formRouteHandler = new FormRouteHandler();
+        String requestString = """
+                GET /form?fizz=3&buzz=5&fizzBuzz=15 HTTP/1.1\r
+                \r
+                ------WebKitFormBoundarynAd0dgsCmrEVtjpz\r
+                Content-Disposition: form-data; name="file"; filename="autobot.jpg"\r
+                """;
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream(requestString.getBytes()));
+        String result = formRouteHandler.handlePostRequest(request);
+        System.out.println(result);
+        assertTrue(result.contains("<h2>POST Form</h2>"));
+    }
+
+    @Test
+    void formPostContainsFileName() throws IOException {
+        FormRouteHandler formRouteHandler = new FormRouteHandler();
+        String requestString = """
+                GET /form?fizz=3&buzz=5&fizzBuzz=15 HTTP/1.1\r
+                \r
+                ------WebKitFormBoundarynAd0dgsCmrEVtjpz\r
+                Content-Disposition: form-data; name="file"; filename="autobot.jpg"\r
+                """;
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream(requestString.getBytes()));
+        String result = formRouteHandler.handlePostRequest(request);
+        System.out.println(result);
+        assertTrue(result.contains("<li>file name: autobot.jpg</li>"));
     }
 }

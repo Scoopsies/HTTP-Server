@@ -78,7 +78,7 @@ public class GuessRouteHandler implements RouteHandler {
 
     private String buildGuessResponse(String answerCookie, String guessesCookie, String message) throws IOException {
         FileContent fc = new FileContent();
-        String html = fc.getTextFileContent("/Users/scoops/Projects/HttpServer/testRoot/guess/index.html");
+        String html = fc.getResourceTextFileContent("guess/index.html");
 
         return """
                     HTTP/1.1 200 OK

@@ -20,32 +20,29 @@ public class DefaultRouteHandler implements RouteHandler {
         return getResponse(request, this.root);
     }
 
-
     public byte[] getResponse(HttpRequest request, String root) throws IOException {
         String filePath = request.get("path");
         File indexHTML = new File(root + filePath + "/index.html");
         File file = new File(root + filePath);
-        ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
         ResponseBuilder responseBuilder = new ResponseBuilder();
 
         if (indexHTML.exists()) {
             byte[] fileContent = new FileContent().getFileContent(indexHTML);
-            return responseBuilder.buildResponse(responseStream, fileContent);
+            return responseBuilder.buildResponse(fileContent);
         }
 
         if (file.isFile()) {
             byte[] fileContent = new FileContent().getFileContent(file);
-            return responseBuilder.buildResponse(responseStream, getContentType(filePath), fileContent);
+            return responseBuilder.buildResponse(getContentType(filePath), fileContent);
         }
 
         if (file.isDirectory()) {
             String directoryListing = new DirectoryBuilder().build(file, root);
-            return responseBuilder.buildResponse(responseStream, directoryListing.getBytes());
+            return responseBuilder.buildResponse(directoryListing.getBytes());
         }
 
-        var fileNotFound = new File("/Users/scoops/Projects/httpServer1.1/404/index.html");
-        byte[] fileContent = new FileContent().getFileContent(fileNotFound);
-        return responseBuilder.buildResponse(responseStream, "404 Not Found", getContentType(filePath), fileContent);
+        String fileContent = new FileContent().getResourceTextFileContent("404/index.html");
+        return responseBuilder.buildResponse("404 Not Found", getContentType(filePath), fileContent.getBytes());
     }
 
     public String getContentType(String pathString) {

@@ -1,9 +1,6 @@
 package com.cleanCoders;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.Objects;
 
@@ -51,5 +48,23 @@ public class FileContent {
     public byte[] getBinaryFileContent(File file) throws IOException {
         var path = file.toPath();
         return Files.readAllBytes(path);
+    }
+
+    public String getResourceTextFileContent(String path) throws IOException {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+
+        try (InputStream inputStream = classLoader.getResourceAsStream(path)) {
+            assert inputStream != null;
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+
+                StringBuilder content = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    content.append(line).append("\n");
+                }
+
+                return content.toString();
+            }
+        }
     }
 }
