@@ -11,11 +11,10 @@ public class ResponseBuilderTest {
     @Test
     void buildResponseWithCustomStatusAndContentType() throws IOException {
         ResponseBuilder responseBuilder = new ResponseBuilder();
-        ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
         String status = "404 Not Found";
         String contentType = "Content-Type: text/plain\n";
         byte[] content = "File not found".getBytes();
-        byte[] response = responseBuilder.buildResponse(responseStream, status, contentType, content);
+        byte[] response = responseBuilder.buildResponse(status, contentType, content);
 
         String expectedResponse = """
             HTTP/1.1 404 Not Found\r
@@ -30,12 +29,10 @@ public class ResponseBuilderTest {
     @Test
     void buildResponseWithDefaultStatusAndCustomContentType() throws IOException {
         ResponseBuilder responseBuilder = new ResponseBuilder();
-        ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
-
         String contentType = "Content-Type: application/json\n";
         byte[] content = "{\"key\": \"value\"}".getBytes();
 
-        byte[] response = responseBuilder.buildResponse(responseStream, contentType, content);
+        byte[] response = responseBuilder.buildResponse(contentType, content);
 
         String expectedResponse = """
             HTTP/1.1 200 OK\r
