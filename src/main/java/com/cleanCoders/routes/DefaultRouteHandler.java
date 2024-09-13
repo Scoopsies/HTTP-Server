@@ -1,12 +1,12 @@
 package com.cleanCoders.routes;
 
 import com.cleanCoders.*;
+import com.cleanCoders.responses.DirectoryListingResponse;
+import com.cleanCoders.responses.FileNotFound404;
+import com.cleanCoders.responses.FileResponse;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class DefaultRouteHandler implements RouteHandler {
     String root;
@@ -17,46 +17,31 @@ public class DefaultRouteHandler implements RouteHandler {
 
     @Override
     public byte[] handle(HttpRequest request) throws IOException {
-        return getResponse(request, this.root);
+        return getResponse(request);
     }
 
-    public byte[] getResponse(HttpRequest request, String root) throws IOException {
-        String filePath = request.get("path");
-        File indexHTML = new File(root + filePath + "/index.html");
-        File file = new File(root + filePath);
-        ResponseBuilder responseBuilder = new ResponseBuilder();
+    public byte[] getResponse(HttpRequest request) throws IOException {
+        String filePath = this.root + request.get("path");
+        File file = new File(filePath);
 
-        if (indexHTML.exists()) {
-            byte[] fileContent = new FileContent().getFileContent(indexHTML);
-            return responseBuilder.buildResponse(fileContent);
+        if (hasIndexHtml(file)) {
+            return FileResponse.build(filePath + "/index.html");
         }
 
-        if (file.isFile()) {
-            byte[] fileContent = new FileContent().getFileContent(file);
-            return responseBuilder.buildResponse(getContentType(filePath), fileContent);
-        }
+        if (file.isFile())
+            return FileResponse.build(filePath);
+
 
         if (file.isDirectory()) {
-            String directoryListing = new DirectoryBuilder().build(file, root);
-            return responseBuilder.buildResponse(directoryListing.getBytes());
+            return DirectoryListingResponse.build(filePath, this.root);
         }
 
-        String fileContent = new FileContent().getResourceTextFileContent("404/index.html");
-        return responseBuilder.buildResponse("404 Not Found", getContentType(filePath), fileContent.getBytes());
+        return FileNotFound404.build(filePath);
     }
 
-    public String getContentType(String pathString) {
-        var path = Path.of(pathString);
-        String contentType;
-
-        try {
-            contentType = Files.probeContentType(path);
-            if (contentType == null)
-                contentType = "text/html";
-        } catch (IOException ioe) {
-            contentType = "text/html";
-            System.out.println(ioe.getMessage());
-        }
-        return "Content-Type: " + contentType + "\n";
+    private boolean hasIndexHtml(File file) {
+        File indexHTML = new File(file.getPath() + "/index.html");
+        return indexHTML.exists();
     }
+
 }

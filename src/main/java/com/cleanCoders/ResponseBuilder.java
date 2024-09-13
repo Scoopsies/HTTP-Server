@@ -22,7 +22,7 @@ public class ResponseBuilder {
     }
 
     public byte[] buildResponse(byte[] content) throws IOException {
-        return buildResponse("Content-Type: text/html\n", content);
+        return buildResponse("Content-Type: text/html\r\n", content);
     }
 
     public String buildResponseStatus(String status) {

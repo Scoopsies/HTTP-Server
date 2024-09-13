@@ -51,8 +51,10 @@ public class FormRouteHandler implements RouteHandler {
 
     private String getFileName(HttpRequest request) {
         String body = request.get("body");
+//        System.out.println(body);
         if (body != null) {
             String contentDisposition = body.split("\r\n")[1].replace("Content-Disposition: form-data;", "");
+            System.out.println(contentDisposition);
             return contentDisposition.split(";")[1].split("=")[1].replace("\"", "");
         }
 

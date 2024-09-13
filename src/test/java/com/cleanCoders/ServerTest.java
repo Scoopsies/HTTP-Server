@@ -20,7 +20,7 @@ public class ServerTest {
         router.addRoute("/listing", new ListingRouteHandler("."));
         router.addRoute("/form", new FormRouteHandler());
         router.addRoute("/guess", new GuessRouteHandler());
-        server = new Server(router, 80, ".");
+        server = new Server(router, 80);
     }
 
     @Test

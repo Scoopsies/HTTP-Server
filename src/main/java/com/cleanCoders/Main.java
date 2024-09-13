@@ -17,9 +17,11 @@ public class Main {
         router.addRoute("/form", new FormRouteHandler());
         router.addRoute("/guess", new GuessRouteHandler());
 
-        Server server = new Server(router, parsedArgs.getPort(), parsedArgs.getRoot());
+        Server server = new Server(router, parsedArgs.getPort());
 
-        if (parsedArgs.getRunStatus())
+        if (parsedArgs.getRunStatus()) {
+            Printables.printStartupConfig(parsedArgs.getRoot(), parsedArgs.getPort());
             server.run();
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.cleanCoders;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Objects;
 
 public class FileContent {
@@ -11,6 +12,11 @@ public class FileContent {
         if (isTextFile(extension))
             return getTextFileContent(file).getBytes();
         return getBinaryFileContent(file);
+    }
+
+    public byte[] getFileContent(String filePath) throws IOException {
+        File file = new File(filePath);
+        return getFileContent(file);
     }
 
     public String getExtensionOf(String path) {
@@ -66,5 +72,20 @@ public class FileContent {
                 return content.toString();
             }
         }
+    }
+
+    public String getContentType(String pathString) {
+        var path = Path.of(pathString);
+        String contentType;
+
+        try {
+            contentType = Files.probeContentType(path);
+            if (contentType == null)
+                contentType = "text/html";
+        } catch (IOException ioe) {
+            contentType = "text/html";
+            System.out.println(ioe.getMessage());
+        }
+        return "Content-Type: " + contentType + "\r\n";
     }
 }

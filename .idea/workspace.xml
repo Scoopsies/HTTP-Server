@@ -9,11 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Updated ListingRouteHandler to select the proper route instead of hardcoding it.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/GuessRouteHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/GuessRouteHandlerTest.java" afterDir="false" />
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Broke default response handlers parts into three static methods.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/responses/DirectoryListingResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/responses/FileNotFound404.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/responses/FileResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/DefaultRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/DefaultRouteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +45,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -43,18 +59,24 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.All in HttpServer.executor": "Run",
     "JUnit.ArgParserTest.executor": "Run",
     "JUnit.ArgParserTest.parseArgsSetsPort8080.executor": "Run",
     "JUnit.DefaultRouteHandlerTest.executor": "Run",
     "JUnit.DefaultRouteHandlerTest.getContentTypeReturnsHTML.executor": "Run",
+    "JUnit.DefaultRouteHandlerTest.getResponseIfThereIsAnIndex.executor": "Run",
     "JUnit.DirectoryBuilderTest.executor": "Run",
     "JUnit.FileContentTest.executor": "Run",
+    "JUnit.FileContentTest.testGetResourceTextFileContent_ResourceNotFound.executor": "Run",
+    "JUnit.FileContentTest.testGetResourceTextFileContent_ValidResource.executor": "Run",
     "JUnit.FormRouteHandlerTest.executor": "Run",
     "JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected.executor": "Run",
     "JUnit.GuessRouteHandlerTest.executor": "Run",
     "JUnit.HelloRouteHandlerTest.executor": "Run",
     "JUnit.HttpRequestTest.executor": "Run",
     "JUnit.HttpRequestTest.getRequestIsGettingWholeRequest.executor": "Run",
+    "JUnit.HttpRequestTest.getRequestReadsGetRequest.executor": "Run",
+    "JUnit.HttpRequestTest.parseRequestPutsHeaderInMap.executor": "Run",
     "JUnit.HttpRequestTest.parseRequestPutsMethodInMap.executor": "Run",
     "JUnit.HttpRequestTest.parseRequestPutsServerInMap.executor": "Run",
     "JUnit.HttpRequestTest.parseRequestPutsTargetInMap.executor": "Run",
@@ -64,6 +86,7 @@
     "JUnit.HttpResponseTest.getDirectoryListingForThings.executor": "Run",
     "JUnit.HttpResponseTest.getResponseIf404.executor": "Run",
     "JUnit.ListingRouteHandlerTest.executor": "Run",
+    "JUnit.ListingRouteHandlerTest.listingRouteBuildsADirectoryForTestRoot.executor": "Run",
     "JUnit.ParseArgsTest.executor": "Run",
     "JUnit.ParseArgsTest.parseArgsSetsPort800.executor": "Run",
     "JUnit.ParseArgsTest.parseArgsSetsPort8080.executor": "Run",
@@ -72,6 +95,7 @@
     "JUnit.PrintablesTest.executor": "Run",
     "JUnit.PrintablesTest.printHelpMenuPrintsTheDefaultConfigMenu.executor": "Run",
     "JUnit.PrintablesTest.printHelpMenuPrintsTheHelpMenu.executor": "Run",
+    "JUnit.ResourceReaderTest.executor": "Run",
     "JUnit.ResponseBuilderTest.buildResponseStatusReturnsCorrectStatusLine.executor": "Run",
     "JUnit.ResponseBuilderTest.buildResponseWithDefaultStatusAndDefaultContentType.executor": "Run",
     "JUnit.ResponseBuilderTest.buildResponseWithOnlyContent.executor": "Run",
@@ -79,6 +103,7 @@
     "JUnit.RouterTest.executor": "Run",
     "JUnit.RouterTest.getPathRootExtractsCorrectPath.executor": "Run",
     "JUnit.ServerTest.executor": "Run",
+    "JUnit.ServerTest.handleInOutReturnsPingRequest.executor": "Run",
     "JUnit.ServerTest.localSocketAddressCreated.executor": "Run",
     "JUnit.ServerTest.runListensForAConnection.executor": "Run",
     "JUnit.ServerTest.serverSocketCreatedAtPort80byDefault.executor": "Run",
@@ -87,7 +112,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/scoops/Projects/HttpServer/testRoot",
+    "last_opened_file_path": "/Users/scoops/Projects/HttpServer/src/main/resources",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -95,13 +120,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/testRoot" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.cleanCoders" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in HttpServer">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cleanCoders.Main" />
       <module name="HttpServer" />
@@ -145,22 +171,15 @@
       <setting name="urlFile" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="FormRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in HttpServer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cleanCoders.routes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.FormRouteHandlerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FormRouteHandlerTest.helloRouteRespondsAsExpected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DefaultRouteHandlerTest.getResponseIfThereIsAnIndex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
         <pattern>
@@ -169,29 +188,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.FormRouteHandlerTest" />
-      <option name="METHOD_NAME" value="helloRouteRespondsAsExpected" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.DefaultRouteHandlerTest" />
+      <option name="METHOD_NAME" value="getResponseIfThereIsAnIndex" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GuessRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HttpServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cleanCoders.routes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.GuessRouteHandlerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ListingRouteHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ListingRouteHandlerTest.listingRouteBuildsADirectoryForTestRoot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
         <pattern>
@@ -201,6 +205,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
       <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.ListingRouteHandlerTest" />
+      <option name="METHOD_NAME" value="listingRouteBuildsADirectoryForTestRoot" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResponseBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ResponseBuilderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,11 +228,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in HttpServer" />
+        <item itemvalue="JUnit.DefaultRouteHandlerTest.getResponseIfThereIsAnIndex" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.GuessRouteHandlerTest" />
-        <item itemvalue="JUnit.ListingRouteHandlerTest" />
-        <item itemvalue="JUnit.FormRouteHandlerTest" />
-        <item itemvalue="JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected" />
+        <item itemvalue="JUnit.ListingRouteHandlerTest.listingRouteBuildsADirectoryForTestRoot" />
+        <item itemvalue="JUnit.ResponseBuilderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +269,87 @@
       <option name="project" value="LOCAL" />
       <updated>1725995715241</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Built a guess route Handler that uses cookies for the guessing game.">
+      <option name="closed" value="true" />
+      <created>1726007277429</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726007277429</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cleaned up some formatting.">
+      <option name="closed" value="true" />
+      <created>1726007726127</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726007726127</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Refactored handlePost and handleGet into their own methods.">
+      <option name="closed" value="true" />
+      <created>1726009381266</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726009381266</updated>
+    </task>
+    <task id="LOCAL-00007" summary="&quot;Took out system.Out.println() that was used for debugging.&quot;">
+      <option name="closed" value="true" />
+      <created>1726070543208</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726070543208</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Body is read dependent on content-length.">
+      <option name="closed" value="true" />
+      <created>1726084410906</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726084410906</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Absolute path moved to resources.">
+      <option name="closed" value="true" />
+      <created>1726145943127</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726145943127</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Response builder no longer needs an Output stream argument, it's contained in the method itself.">
+      <option name="closed" value="true" />
+      <created>1726146022128</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726146022128</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Response builder no longer needs an Output stream argument, it's contained in the method itself.">
+      <option name="closed" value="true" />
+      <created>1726146284698</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726146284698</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Method created for reading from resources file.">
+      <option name="closed" value="true" />
+      <created>1726146361356</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1726146361356</updated>
+    </task>
+    <task id="LOCAL-00013" summary="HandleInOut tests added.">
+      <option name="closed" value="true" />
+      <created>1726146417111</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726146417111</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,6 +367,17 @@
     <MESSAGE value="Initial Commit." />
     <MESSAGE value="Added additional tests for formRoute, and gave QueryParser its own class." />
     <MESSAGE value="Updated ListingRouteHandler to select the proper route instead of hardcoding it." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated ListingRouteHandler to select the proper route instead of hardcoding it." />
+    <MESSAGE value="Built a guess route Handler that uses cookies for the guessing game." />
+    <MESSAGE value="Cleaned up some formatting." />
+    <MESSAGE value="Refactored handlePost and handleGet into their own methods." />
+    <MESSAGE value="&quot;Took out system.Out.println() that was used for debugging.&quot;" />
+    <MESSAGE value="Body is read dependent on content-length." />
+    <MESSAGE value="Added resources." />
+    <MESSAGE value="Absolute path moved to resources." />
+    <MESSAGE value="Response builder no longer needs an Output stream argument, it's contained in the method itself." />
+    <MESSAGE value="Method created for reading from resources file." />
+    <MESSAGE value="HandleInOut tests added." />
+    <MESSAGE value="Broke default response handlers parts into three static methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Broke default response handlers parts into three static methods." />
   </component>
 </project>

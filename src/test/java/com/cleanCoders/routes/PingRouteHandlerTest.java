@@ -18,7 +18,7 @@ public class PingRouteHandlerTest {
         var time = pingHandler.getCurrentTime();
         var expected = """
                 HTTP/1.1 200 OK\r
-                Content-Type: text/html
+                Content-Type: text/html\r
                 Server: httpServer\r
                 \r
                 <h2>Ping</h2>
@@ -41,7 +41,7 @@ public class PingRouteHandlerTest {
 
         var expected = """
                 HTTP/1.1 200 OK\r
-                Content-Type: text/html
+                Content-Type: text/html\r
                 Server: httpServer\r
                 \r
                 <h2>Ping</h2>
