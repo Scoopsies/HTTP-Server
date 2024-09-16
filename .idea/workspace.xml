@@ -9,26 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Broke default response handlers parts into three static methods.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/responses/DirectoryListingResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/responses/FileNotFound404.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/responses/FileResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Added 404 clause to Listing Route Handler.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/DefaultRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/DefaultRouteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/ListingRouteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +101,8 @@
     "last_opened_file_path": "/Users/scoops/Projects/HttpServer/src/main/resources",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -127,7 +114,7 @@
       <recent name="com.cleanCoders" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in HttpServer">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cleanCoders.Main" />
       <module name="HttpServer" />
@@ -228,9 +215,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in HttpServer" />
         <item itemvalue="JUnit.DefaultRouteHandlerTest.getResponseIfThereIsAnIndex" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ListingRouteHandlerTest.listingRouteBuildsADirectoryForTestRoot" />
         <item itemvalue="JUnit.ResponseBuilderTest" />
       </list>
@@ -349,7 +336,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726146417111</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Broke default response handlers parts into three static methods.">
+      <option name="closed" value="true" />
+      <created>1726243720279</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1726243720279</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added 404 clause to Listing Route Handler.">
+      <option name="closed" value="true" />
+      <created>1726243772914</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726243772914</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -378,6 +381,7 @@
     <MESSAGE value="Method created for reading from resources file." />
     <MESSAGE value="HandleInOut tests added." />
     <MESSAGE value="Broke default response handlers parts into three static methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="Broke default response handlers parts into three static methods." />
+    <MESSAGE value="Added 404 clause to Listing Route Handler." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added 404 clause to Listing Route Handler." />
   </component>
 </project>

@@ -21,10 +21,10 @@ public class ListingRouteHandler implements RouteHandler {
     public byte[] handle(HttpRequest request) throws IOException {
         String filePath = request.get("path").replace("/listing", this.root);
 
-        if (isDirectory(filePath))
-            return handleValidRequest(request);
+        if (!isDirectory(filePath))
+            return FileNotFound404.build(request.get("path"));
 
-        return FileNotFound404.build(request.get("path"));
+        return handleValidRequest(request);
     }
 
     private boolean isDirectory(String filePath) {

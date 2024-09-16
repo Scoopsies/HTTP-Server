@@ -46,6 +46,12 @@ public class HttpRequest {
             char[] body = new char[intLength];
             int actualRead = reader.read(body, 0, intLength);
             request.append(body, 0, actualRead);
+            requestMap.put("body", new String(body));
+            String boundary = requestMap.get("Content-Type").replace("multipart/form-data; boundary=", "");
+            String contentType = requestMap.get("body").split("\r\n")[2].replace("Content-Type: ", "");
+            requestMap.put("boundary", boundary);
+            String fileName = getFileName();
+            requestMap.put("file name", fileName);
         }
     }
 
@@ -58,10 +64,7 @@ public class HttpRequest {
     }
 
     public void parseRequest(String request) {
-        String header = requestMap.get("header") + "\r\n";
         requestMap.put("request", request);
-        String body = requestMap.get("request").replace(header, "");
-        requestMap.put("body", body);
     }
 
     private void addHeaderLines(String request) {
@@ -69,9 +72,26 @@ public class HttpRequest {
         for (int i = 1; i < headerLines.length; i++) {
             var headerLine = headerLines[i].split(": ", 2);
             if (Objects.equals(2, headerLine.length)) {
-                requestMap.put(headerLine[0], headerLine[1]);
+                this.requestMap.put(headerLine[0], headerLine[1]);
             }
         }
+    }
+
+    private String getFileName() {
+        String body = this.requestMap.get("body");
+        if (body != null) {
+            String contentDisposition = getContentDisposition();
+            return contentDisposition.split(";")[1].split("=")[1].replace("\"", "");
+        }
+        return "";
+    }
+
+    private String getContentDisposition() {
+        String body = this.requestMap.get("body");
+        if (body != null) {
+            return body.split("\r\n")[1].replace("Content-Disposition: form-data;", "");
+        }
+        return "";
     }
 
     private String parsePath(String request) {

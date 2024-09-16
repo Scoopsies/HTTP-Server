@@ -36,8 +36,6 @@ public class DefaultRouteHandlerTest {
             """;
         var result = new String(response);
 
-        System.out.println(result.replace("\r\n", "CLRF"));
-        System.out.println(expected.replace("\r\n", "CLRF"));
         assertEquals(expected, result);
     }
 
