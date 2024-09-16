@@ -46,13 +46,37 @@ public class HttpRequest {
             char[] body = new char[intLength];
             int actualRead = reader.read(body, 0, intLength);
             request.append(body, 0, actualRead);
-            requestMap.put("body", new String(body));
-            String boundary = requestMap.get("Content-Type").replace("multipart/form-data; boundary=", "");
-            String contentType = requestMap.get("body").split("\r\n")[2].replace("Content-Type: ", "");
-            requestMap.put("boundary", boundary);
-            String fileName = getFileName();
-            requestMap.put("file name", fileName);
+            parseBody(body);
         }
+    }
+
+    private void parseBody(char[] body) {
+        this.requestMap.put("body", new String(body));
+        parseBoundary();
+        parseContentType();
+        parseBodyHeader();
+        parseFileName();
+    }
+
+    private void parseFileName() {
+        String contentDisposition = getContentDisposition();
+        String fileName = contentDisposition.split(";")[1].split("=")[1].replace("\"", "");
+        this.requestMap.put("file name", fileName);
+    }
+
+    private void parseBodyHeader() {
+        String header = this.requestMap.get("body").split("\r\n\r\n")[0];
+        this.requestMap.put("body header", header);
+    }
+
+    private void parseContentType() {
+        String contentType = this.requestMap.get("body").split("\r\n")[2].replace("Content-Type: ", "");
+        this.requestMap.put("content type", contentType);
+    }
+
+    private void parseBoundary() {
+        String boundary = this.requestMap.get("Content-Type").replace("multipart/form-data; boundary=", "");
+        this.requestMap.put("boundary", boundary);
     }
 
     private void parseHeader(String header) {
@@ -75,15 +99,6 @@ public class HttpRequest {
                 this.requestMap.put(headerLine[0], headerLine[1]);
             }
         }
-    }
-
-    private String getFileName() {
-        String body = this.requestMap.get("body");
-        if (body != null) {
-            String contentDisposition = getContentDisposition();
-            return contentDisposition.split(";")[1].split("=")[1].replace("\"", "");
-        }
-        return "";
     }
 
     private String getContentDisposition() {

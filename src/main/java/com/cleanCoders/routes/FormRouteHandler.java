@@ -40,29 +40,17 @@ public class FormRouteHandler implements RouteHandler {
 
     public String handlePostRequest(HttpRequest request) {
         String fileName = request.get("file name");
+        String contentType = request.get("content type");
         String body = request.get("body");
-        String boundary = request.get("Content-Type").replace("multipart/form-data; boundary=", "");
-        String fullHeader = request.get("header");
-        String fullRequest = request.get("request");
-        String contentDisposition = body.split("\r\n")[1];
-        String contentType = request.get("body").split("\r\n")[2].replace("Content-Type: ", "");
-        String content = request.get("body").split("\r\n")[4];
-        int contentLength = Integer.parseInt(request.get("Content-Length"));
-        String header = request.get("body").split("\r\n\r\n")[0];
-        String file = request.get("body").split("\r\n\r\n")[1];
+        String boundary = request.get("boundary");
+        String bodyHeader = request.get("body header");
         String CLRF = "\r\n";
+        int fileSize = body.length() - boundary.length() - bodyHeader.length() - (CLRF.length() * 6);
 
         return "<h2>POST Form</h2>"
                 + "<li>file name: " + fileName + "</li>"
                 + "<li>content type: " + contentType + "</li>"
-                + "<li>file size: " + (body.length() - boundary.length() - header.length() - (CLRF.length() * 6)) + "</li>"
-                + "<li>Content-Length: " + contentLength + "</li>"
-                + "<li>Boundary: " + boundary + "</li>"
-                + "<li>Boundary-length: " + boundary.length() + "</li>"
-                + "<li>Header: " + header + "</li>"
-                + "<li>Header-length: " + header.length() + "</li>"
-                + "<li>body-length: " + body.length() + "</li>"
-                ;
+                + "<li>file size: " + fileSize + "</li>";
 
     }
 }
