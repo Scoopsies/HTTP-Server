@@ -89,23 +89,21 @@ public class MultiFormPartTest {
         assertEquals(1, multiFormPart.indexOfFirst(content, doubleCRLF));
     }
 
-//    @Test
-//    void parsesContentOfFile() {
-//        byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "content").getBytes();
-//        MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-//
-//
-//        assertArrayEquals("content".getBytes(), multiFormPart.getContent());
-//    }
-//
-//    @Test
-//    void parsesContentOfFileAgain() {
-//        byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "different").getBytes();
-//        MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-//
-//        assertArrayEquals("different".getBytes(), multiFormPart.getContent());
-//    }
+    @Test
+    void parsesContentOfFile() {
+        byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "content").getBytes();
+        MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
 
+//        System.out.println(new String(multiFormPart.getContent()));
+        assertArrayEquals("content".getBytes(), multiFormPart.getContent());
+    }
 
+    @Test
+    void parsesContentOfFileAgain() {
+        byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "different").getBytes();
+        MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
+
+        assertArrayEquals("different".getBytes(), multiFormPart.getContent());
+    }
 
 }

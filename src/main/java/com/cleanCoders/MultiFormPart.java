@@ -22,20 +22,23 @@ public class MultiFormPart {
         this.content = parseContent(body, boundary);
     }
 
-    private byte[] slice(byte[] src, int startIdx, int endIdx) {
-        byte[] result = new byte[src.length - endIdx];
-        System.arraycopy(src, startIdx, result, 0, endIdx);
+    private byte[] parseContent(byte[] body, byte[] boundary) {
+        final byte[] doubleCrlf = "\r\n\r\n".getBytes();
+        int contentStartIndex = indexOfFirst(body, doubleCrlf) + doubleCrlf.length;
+        
+        byte[] startOfContentToEnd = slice(body, contentStartIndex, body.length);
+        System.out.println("startOfContentToEnd: " + new String(startOfContentToEnd));
 
-        return result;
+        int contentEndIndex = indexOfFirst(startOfContentToEnd, boundary) - 2;
+
+        return slice(startOfContentToEnd, 0, contentEndIndex);
     }
 
-    private byte[] parseContent(byte[] body, byte[] boundary) {
-        final byte[] CRLF = "\r\n\r\n".getBytes();
-        int headerEndIndex = indexOfFirst(body, CRLF) + CRLF.length;
-        byte[] endOfHeaderToEnd = slice(body, headerEndIndex, body.length - headerEndIndex);
-        int contentEndIndex = indexOfFirst(endOfHeaderToEnd, boundary) - 1;
+    private byte[] slice(byte[] src, int startIdx, int endIdx) {
+        byte[] result = new byte[endIdx - startIdx];
+        System.arraycopy(src, startIdx, result, 0, result.length);
 
-        return slice(endOfHeaderToEnd, 0, contentEndIndex);
+        return result;
     }
 
     private static String parseContentDisposition(String contentDisposition, String key) {
@@ -45,18 +48,6 @@ public class MultiFormPart {
                         .collect(Collectors.joining())
                         .split("=")[1]
                         .replace("\"", "");
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public byte[] parseContent() {
-        return "content".getBytes();
     }
 
     public int indexOfFirst(byte[] content, byte[] doubleCRLF) {
@@ -75,5 +66,17 @@ public class MultiFormPart {
             }
         }
         return -1;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    public byte[] getContent() {
+        return this.content;
     }
 }
