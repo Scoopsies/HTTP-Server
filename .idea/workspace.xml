@@ -9,10 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Post Form is working as intended.">
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Moved slice to ArrayUtils.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArrayUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArrayUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/MultiFormPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Part.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MultiFormPartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/multipart/PartTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ArrayUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ArrayUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/HttpRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/HttpRequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/HelloRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/HelloRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +40,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="8e1a6da5cc5c8a70f141fccc04468ac7077d7be3" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -46,6 +63,8 @@
     "JUnit.All in HttpServer.executor": "Run",
     "JUnit.ArgParserTest.executor": "Run",
     "JUnit.ArgParserTest.parseArgsSetsPort8080.executor": "Run",
+    "JUnit.ArrayUtilsTest.executor": "Run",
+    "JUnit.BodyTest.executor": "Run",
     "JUnit.DefaultRouteHandlerTest.executor": "Run",
     "JUnit.DefaultRouteHandlerTest.getContentTypeReturnsHTML.executor": "Run",
     "JUnit.DefaultRouteHandlerTest.getResponseIfThereIsAnIndex.executor": "Run",
@@ -54,12 +73,14 @@
     "JUnit.FileContentTest.testGetResourceTextFileContent_ResourceNotFound.executor": "Run",
     "JUnit.FileContentTest.testGetResourceTextFileContent_ValidResource.executor": "Run",
     "JUnit.FormRouteHandlerTest.executor": "Run",
+    "JUnit.FormRouteHandlerTest.formPostContainsAContentType.executor": "Run",
     "JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected.executor": "Run",
     "JUnit.GuessRouteHandlerTest.executor": "Run",
     "JUnit.HelloRouteHandlerTest.executor": "Run",
     "JUnit.HttpRequestTest.executor": "Run",
     "JUnit.HttpRequestTest.getRequestIsGettingWholeRequest.executor": "Run",
     "JUnit.HttpRequestTest.getRequestReadsGetRequest.executor": "Run",
+    "JUnit.HttpRequestTest.parseRequestPutsBodyInMap.executor": "Run",
     "JUnit.HttpRequestTest.parseRequestPutsHeaderInMap.executor": "Run",
     "JUnit.HttpRequestTest.parseRequestPutsMethodInMap.executor": "Run",
     "JUnit.HttpRequestTest.parseRequestPutsServerInMap.executor": "Run",
@@ -69,12 +90,18 @@
     "JUnit.HttpResponseTest.getDirectoryListingFor404.executor": "Run",
     "JUnit.HttpResponseTest.getDirectoryListingForThings.executor": "Run",
     "JUnit.HttpResponseTest.getResponseIf404.executor": "Run",
+    "JUnit.IndexOfTest.executor": "Run",
     "JUnit.ListingRouteHandlerTest.executor": "Run",
     "JUnit.ListingRouteHandlerTest.listingRouteBuildsADirectoryForTestRoot.executor": "Run",
+    "JUnit.MultiFormPartTest.executor": "Run",
+    "JUnit.MultiFormPartTest.parsesContentOfFile.executor": "Run",
+    "JUnit.MultiFormPartTest.parsesContentOfFileAgain.executor": "Run",
+    "JUnit.MultiFormPartTest.parsesOptionalFileNameBeforeName.executor": "Run",
     "JUnit.ParseArgsTest.executor": "Run",
     "JUnit.ParseArgsTest.parseArgsSetsPort800.executor": "Run",
     "JUnit.ParseArgsTest.parseArgsSetsPort8080.executor": "Run",
     "JUnit.ParseArgsTest.parseArgsSetsRootToHello.executor": "Run",
+    "JUnit.PartTest.executor": "Run",
     "JUnit.PingRouteHandlerTest.executor": "Run",
     "JUnit.PrintablesTest.executor": "Run",
     "JUnit.PrintablesTest.printHelpMenuPrintsTheDefaultConfigMenu.executor": "Run",
@@ -96,11 +123,17 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/scoops/Projects/HttpServer/src/test/java/com/cleanCoders",
     "last_opened_file_path": "/Users/scoops/Projects/HttpServer/src/main/resources",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -112,7 +145,7 @@
       <recent name="com.cleanCoders" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in HttpServer">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cleanCoders.Main" />
       <module name="HttpServer" />
@@ -164,39 +197,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DefaultRouteHandlerTest.getResponseIfThereIsAnIndex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HttpServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cleanCoders.routes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.DefaultRouteHandlerTest" />
-      <option name="METHOD_NAME" value="getResponseIfThereIsAnIndex" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ListingRouteHandlerTest.listingRouteBuildsADirectoryForTestRoot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HttpServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cleanCoders.routes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cleanCoders.routes" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.routes.ListingRouteHandlerTest" />
-      <option name="METHOD_NAME" value="listingRouteBuildsADirectoryForTestRoot" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ResponseBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArrayUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
         <pattern>
@@ -205,19 +206,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.cleanCoders" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ResponseBuilderTest" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ArrayUtilsTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BodyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.multipart.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders.multipart" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.multipart.BodyTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpRequestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.HttpRequestTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.All in HttpServer" />
+      <item itemvalue="JUnit.ArrayUtilsTest" />
+      <item itemvalue="JUnit.BodyTest" />
+      <item itemvalue="JUnit.HttpRequestTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in HttpServer" />
-        <item itemvalue="JUnit.DefaultRouteHandlerTest.getResponseIfThereIsAnIndex" />
-        <item itemvalue="JUnit.ListingRouteHandlerTest.listingRouteBuildsADirectoryForTestRoot" />
-        <item itemvalue="JUnit.ResponseBuilderTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.HttpRequestTest" />
+        <item itemvalue="JUnit.BodyTest" />
+        <item itemvalue="JUnit.ArrayUtilsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +396,71 @@
       <option name="project" value="LOCAL" />
       <updated>1726493354511</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="MultiFormPart parses, parses content-disposition, and content.">
+      <option name="closed" value="true" />
+      <created>1726698104880</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1726698104880</updated>
+    </task>
+    <task id="LOCAL-00018" summary="&quot;Fixed get ContentSize being wrong size.&quot;">
+      <option name="closed" value="true" />
+      <created>1726706334621</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1726706334621</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Parses a default of text/plain if no contentTypeSupplied.">
+      <option name="closed" value="true" />
+      <created>1726707064204</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1726707064204</updated>
+    </task>
+    <task id="LOCAL-00020" summary="MultiFormPart can parse Content Type.">
+      <option name="closed" value="true" />
+      <created>1726708771597</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1726708771597</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Moved IndexOf to its own class.">
+      <option name="closed" value="true" />
+      <created>1726756594979</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1726756594979</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Body can parse first of multiPart Form.">
+      <option name="closed" value="true" />
+      <created>1726756626363</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1726756626363</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Can parse All parts of MultiPart/form.">
+      <option name="closed" value="true" />
+      <created>1726764064677</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1726764064677</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Moved slice to ArrayUtils.">
+      <option name="closed" value="true" />
+      <created>1726764121189</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1726764121189</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,6 +491,14 @@
     <MESSAGE value="Broke default response handlers parts into three static methods." />
     <MESSAGE value="Added 404 clause to Listing Route Handler." />
     <MESSAGE value="Post Form is working as intended." />
-    <option name="LAST_COMMIT_MESSAGE" value="Post Form is working as intended." />
+    <MESSAGE value="MultiFormPart parses, parses content-disposition, and content." />
+    <MESSAGE value="&quot;Fixed get ContentSize being wrong size.&quot;" />
+    <MESSAGE value="Parses a default of text/plain if no contentTypeSupplied." />
+    <MESSAGE value="MultiFormPart can parse Content Type." />
+    <MESSAGE value="Moved IndexOf to its own class." />
+    <MESSAGE value="Body can parse first of multiPart Form." />
+    <MESSAGE value="Can parse All parts of MultiPart/form." />
+    <MESSAGE value="Moved slice to ArrayUtils." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved slice to ArrayUtils." />
   </component>
 </project>

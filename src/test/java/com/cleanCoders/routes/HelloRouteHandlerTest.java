@@ -12,7 +12,7 @@ public class HelloRouteHandlerTest {
     @Test
     void helloRouteRespondsAsExpected() throws IOException {
         HelloRouteHandler helloRoute = new HelloRouteHandler();
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /hello HTTP/1.1".getBytes()));
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /hello HTTP/1.1\r\n\r\n".getBytes()));
 
         byte[] result = helloRoute.handle(request);
 

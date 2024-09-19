@@ -11,7 +11,7 @@ public class PingRouteHandlerTest {
     @Test
     void pingRouteRespondsImmediately() throws IOException {
         PingRouteHandler pingHandler = new PingRouteHandler();
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /ping HTTP/1.1".getBytes()));
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /ping HTTP/1.1\r\n\r\n".getBytes()));
 
         byte[] result = pingHandler.handle(request);
 
@@ -33,7 +33,7 @@ public class PingRouteHandlerTest {
     @Test
     void ping1RouteResponds1SecondLater() throws IOException{
         PingRouteHandler pingHandler = new PingRouteHandler();
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream("POST /ping/1 HTTP/1.1\r\n".getBytes()));
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream("POST /ping/1 HTTP/1.1\r\n\r\n".getBytes()));
 
         String startTime = pingHandler.getCurrentTime();
         byte[] result = pingHandler.handle(request);

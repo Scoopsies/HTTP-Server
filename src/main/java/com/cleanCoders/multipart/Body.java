@@ -11,7 +11,7 @@ public class Body {
         int partsCount = ArrayUtils.countOccurrencesOf(boundary, body) - 1;
 
         for (int i = 0; i < partsCount; i++) {
-            byte[] partBytes = ArrayUtils.slice(body, ArrayUtils.xth(i, body, boundary), ArrayUtils.xth(i + 1, body, boundary) + boundary.length);
+            byte[] partBytes = ArrayUtils.slice(body, ArrayUtils.indexOfXth(i, body, boundary), ArrayUtils.indexOfXth(i + 1, body, boundary) + boundary.length);
             Part part = new Part(partBytes, boundary);
             partMap.put(part.getName(), part);
         }

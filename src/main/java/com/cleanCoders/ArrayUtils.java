@@ -1,7 +1,7 @@
 package com.cleanCoders;
 
 public class ArrayUtils {
-    public static int xth(int x, byte[] src, byte[] segment) {
+    public static int indexOfXth(int x, byte[] src, byte[] segment) {
         int occurrence = -1;
 
         for (int i = 0; i < src.length; i++) {
@@ -17,8 +17,8 @@ public class ArrayUtils {
         return -1;
     }
 
-    public static int first(byte[] src, byte[] segment) {
-        return xth(0, src, segment);
+    public static int indexOfFirst(byte[] src, byte[] segment) {
+        return indexOfXth(0, src, segment);
     }
 
     public static int countOccurrencesOf(byte[] segment, byte[] src) {

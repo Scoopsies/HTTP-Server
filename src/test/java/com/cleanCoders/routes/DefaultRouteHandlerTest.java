@@ -25,7 +25,7 @@ public class DefaultRouteHandlerTest {
 
     @Test
     void getResponseIfThereIsAnIndex() throws IOException {
-        var inputStream = new ByteArrayInputStream("GET /hello HTTP/1.1".getBytes());
+        var inputStream = new ByteArrayInputStream("GET /hello HTTP/1.1\r\n\r\n".getBytes());
         var response = defaultRouteHandler.getResponse(new HttpRequest(inputStream));
         var expected = """
             HTTP/1.1 200 OK\r
@@ -41,7 +41,7 @@ public class DefaultRouteHandlerTest {
 
     @Test
     void getResponseIf404() throws IOException {
-        var inputStream = new ByteArrayInputStream("GET /hamburger HTTP/1.1".getBytes());
+        var inputStream = new ByteArrayInputStream("GET /hamburger HTTP/1.1\r\n\r\n".getBytes());
         var response = defaultRouteHandler.getResponse(new HttpRequest(inputStream));
         var expected = """
             HTTP/1.1 404 Not Found\r

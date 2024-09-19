@@ -45,12 +45,22 @@ public class FormRouteHandler implements RouteHandler {
         String boundary = request.get("boundary");
         String bodyHeader = request.get("body header");
         String CLRF = "\r\n";
-        int fileSize = body.length() - boundary.length() - bodyHeader.length() - (CLRF.length() * 6);
+//        int fileSize = body.getBytes().length - boundary.getBytes().length - bodyHeader.getBytes().length - (CLRF.length() * 6);
+        String content = body.split("\r\n\r\n")[1].split(CLRF)[0];
+
+        System.out.println("Content: " + content);
+        System.out.println("boundary: " + boundary);
+        System.out.println("body.getBytes().length = " + body.getBytes().length);
+        System.out.println("content.getBytes().length = " + content.getBytes().length);
+        System.out.println("boundaty.getBytes().length = " + boundary.getBytes().length);
+        System.out.println("bodyHeader: " + bodyHeader.replace(CLRF, "CLRF"));
+        System.out.println(contentType);
 
         return "<h2>POST Form</h2>"
                 + "<li>file name: " + fileName + "</li>"
                 + "<li>content type: " + contentType + "</li>"
-                + "<li>file size: " + fileSize + "</li>";
+                + "<li>file size: " + content.getBytes().length + "</li>"
+                ;
 
     }
 }

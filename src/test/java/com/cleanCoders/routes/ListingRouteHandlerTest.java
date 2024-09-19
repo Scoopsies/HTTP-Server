@@ -19,7 +19,7 @@ public class ListingRouteHandlerTest {
     @Test
     void listingRouteBuildsADirectoryForTestRootHello() throws IOException {
         ListingRouteHandler lr = new ListingRouteHandler(".");
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /listing/testRoot/hello HTTP/1.1\r\n".getBytes()));
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /listing/testRoot/hello HTTP/1.1\r\n\r\n".getBytes()));
         byte[] result = lr.handle(request);
         String body = "<h1>Directory Listing for ./testRoot/hello</h1>\n"
                 + "<ul>"
@@ -36,7 +36,7 @@ public class ListingRouteHandlerTest {
     @Test
     void listingRouteBuildsADirectoryForHelloWithTestRootAsRoot() throws IOException {
         ListingRouteHandler lr = new ListingRouteHandler("./testRoot");
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /listing/hello HTTP/1.1\r\n".getBytes()));
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /listing/hello HTTP/1.1\r\n\r\n".getBytes()));
         byte[] result = lr.handle(request);
         String body = "<h1>Directory Listing for ./hello</h1>\n"
                 + "<ul>"
@@ -53,7 +53,7 @@ public class ListingRouteHandlerTest {
     @Test
     void listingRouteReturns404IfDirectoryDoesNotExist() throws IOException {
         ListingRouteHandler lr = new ListingRouteHandler(".");
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /listing/hamburger HTTP/1.1\r\n".getBytes()));
+        HttpRequest request = new HttpRequest(new ByteArrayInputStream("GET /listing/hamburger HTTP/1.1\r\n\r\n".getBytes()));
         byte[] result = lr.handle(request);
 
         String expected = """

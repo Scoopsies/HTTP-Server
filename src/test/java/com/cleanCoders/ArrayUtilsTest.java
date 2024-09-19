@@ -18,13 +18,13 @@ public class ArrayUtilsTest {
 
     @Test
     void findsXthOccurrenceOfBoundary() {
-        assertEquals(0, ArrayUtils.xth(0, bodyBytes, boundary));
-        assertEquals(101, ArrayUtils.xth(1, bodyBytes, boundary));
+        assertEquals(0, ArrayUtils.indexOfXth(0, bodyBytes, boundary));
+        assertEquals(101, ArrayUtils.indexOfXth(1, bodyBytes, boundary));
     }
 
     @Test
     void findsFirstOccurrenceOfBoundary() {
-        assertEquals(0, ArrayUtils.first(bodyBytes, boundary));
+        assertEquals(0, ArrayUtils.indexOfFirst(bodyBytes, boundary));
     }
 
     @Test

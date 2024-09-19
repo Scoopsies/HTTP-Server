@@ -1,15 +1,17 @@
-package com.cleanCoders;
+package com.cleanCoders.multipart;
+
+import com.cleanCoders.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class MultiFormPart {
+public class Part {
     String name;
     String fileName;
     String contentType = "text/plain";
     byte[] content;
 
-    public MultiFormPart(byte[] body, byte[] boundary) {
+    public Part(byte[] body, byte[] boundary) {
         String stringBody = new String(body);
         String contentDisposition = parseHeader(stringBody, "Content-Disposition:");
         String contentType = parseHeader(stringBody, "Content-Type:");
@@ -36,18 +38,11 @@ public class MultiFormPart {
         final byte[] doubleCrlf = "\r\n\r\n".getBytes();
         int contentStartIndex = indexOfFirst(body, doubleCrlf) + doubleCrlf.length;
         
-        byte[] startOfContentToEnd = slice(body, contentStartIndex, body.length);
+        byte[] startOfContentToEnd = ArrayUtils.slice(body, contentStartIndex, body.length);
 
         int contentEndIndex = indexOfFirst(startOfContentToEnd, boundary) - 2;
 
-        return slice(startOfContentToEnd, 0, contentEndIndex);
-    }
-
-    private byte[] slice(byte[] src, int startIdx, int endIdx) {
-        byte[] result = new byte[endIdx - startIdx];
-        System.arraycopy(src, startIdx, result, 0, result.length);
-
-        return result;
+        return ArrayUtils.slice(startOfContentToEnd, 0, contentEndIndex);
     }
 
     private static String parseContentDisposition(String contentDisposition, String key) {
@@ -59,18 +54,18 @@ public class MultiFormPart {
                         .replace("\"", "");
     }
 
-    public int indexOfFirst(byte[] content, byte[] doubleCRLF) {
+    public int indexOfFirst(byte[] content, byte[] segment) {
         for (int i = 0; i < content.length; i++) {
 
-            if (content[i] == doubleCRLF[0]) {
+            if (content[i] == segment[0]) {
                 int counter = 0;
-                for (int j = 0; j < doubleCRLF.length; j++) {
-                    if (doubleCRLF[j] != content[i + j])
+                for (int j = 0; j < segment.length; j++) {
+                    if (segment[j] != content[i + j])
                         break;
 
                     counter++;
                 }
-                if (counter == doubleCRLF.length)
+                if (counter == segment.length)
                     return i;
             }
         }

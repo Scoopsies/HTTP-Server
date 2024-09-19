@@ -1,94 +1,72 @@
 package com.cleanCoders;
 
-import java.io.BufferedReader;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Objects;
 
 public class HttpRequest {
-    HashMap<String, String> requestMap = new HashMap<>();
+    HashMap<String, String> headerMap = new HashMap<>();
+    final byte[] doubleCRLF = "\r\n\r\n".getBytes();
+    byte[] body;
 
     public HttpRequest() {}
 
     public HttpRequest(InputStream inputStream) throws IOException {
-        parseRequest(getRequest(inputStream));
+        BufferedInputStream bis = new BufferedInputStream(inputStream);
+        byte[] headerBytes = readHeader(bis);
+        parseHeader(headerBytes);
+        maybeParseBody(bis);
     }
 
-    public String getRequest(InputStream inputStream) {
-        StringBuilder request = new StringBuilder();
+    private byte[] readHeader(BufferedInputStream inputStream) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        byte[] checker = new byte[1];
+        int matchIndex = 0;
 
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            readHeader(reader, request);
-            parseHeader(request.toString());
-            request.append("\r\n");
-            maybeReadBody(reader, request);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        while (inputStream.read(checker) != -1) {
+            baos.write(checker[0]);
+            if (checker[0] == doubleCRLF[matchIndex]) {
+                matchIndex++;
+                if (matchIndex == doubleCRLF.length) {
+                    break;
+                }
+            } else {
+                matchIndex = 0;
+            }
         }
-        return request.toString();
+
+        return baos.toByteArray();
     }
 
-    private static void readHeader(BufferedReader reader, StringBuilder request) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null && !line.isEmpty()) {
-            request.append(line).append("\r\n");
-        }
-    }
-
-    private void maybeReadBody(BufferedReader reader, StringBuilder request) throws IOException {
-        String contentLength = requestMap.get("Content-Length");
-
-        if (contentLength != null) {
-            int intLength = Integer.parseInt(contentLength);
-            char[] body = new char[intLength];
-            int actualRead = reader.read(body, 0, intLength);
-            request.append(body, 0, actualRead);
-            parseBody(body);
+    private void maybeParseBody(BufferedInputStream inputStream) throws IOException {
+        String contentLengthStr = get("Content-Length");
+        if (contentLengthStr != null) {
+            int contentLength = Integer.parseInt(contentLengthStr);
+            this.body = new byte[contentLength];
+            inputStream.readNBytes(this.body, 0, contentLength);
         }
     }
 
-    private void parseBody(char[] body) {
-        this.requestMap.put("body", new String(body));
+    private void parseHeader(byte[] headerBytes) {
+        String header = new String(headerBytes);
+        headerMap.put("header", header);
+        headerMap.put("startLine", parseStartLine(header));
+        headerMap.put("path", parsePath(header));
+        headerMap.put("method", parseMethod(header));
+        addHeaderLines(headerMap.get("header"));
         parseBoundary();
-        parseContentType();
-        parseBodyHeader();
-        parseFileName();
-    }
-
-    private void parseFileName() {
-        String contentDisposition = getContentDisposition();
-        String fileName = contentDisposition.split(";")[1].split("=")[1].replace("\"", "");
-        this.requestMap.put("file name", fileName);
-    }
-
-    private void parseBodyHeader() {
-        String header = this.requestMap.get("body").split("\r\n\r\n")[0];
-        this.requestMap.put("body header", header);
-    }
-
-    private void parseContentType() {
-        String contentType = this.requestMap.get("body").split("\r\n")[2].replace("Content-Type: ", "");
-        this.requestMap.put("content type", contentType);
     }
 
     private void parseBoundary() {
-        String boundary = this.requestMap.get("Content-Type").replace("multipart/form-data; boundary=", "");
-        this.requestMap.put("boundary", boundary);
-    }
-
-    private void parseHeader(String header) {
-        requestMap.put("header", header);
-        requestMap.put("startLine", parseStartLine(header));
-        requestMap.put("path", parsePath(header));
-        requestMap.put("method", parseMethod(header));
-        addHeaderLines(requestMap.get("header"));
-    }
-
-    public void parseRequest(String request) {
-        requestMap.put("request", request);
+        String contentType = this.headerMap.get("Content-Type");
+        if ((contentType != null) && contentType.contains("multipart/form-data; boundary=")) {
+            String boundary = contentType.replace("multipart/form-data; boundary=", "");
+            boundary = "--" + boundary;
+            this.headerMap.put("boundary", boundary);
+        }
     }
 
     private void addHeaderLines(String request) {
@@ -96,17 +74,9 @@ public class HttpRequest {
         for (int i = 1; i < headerLines.length; i++) {
             var headerLine = headerLines[i].split(": ", 2);
             if (Objects.equals(2, headerLine.length)) {
-                this.requestMap.put(headerLine[0], headerLine[1]);
+                this.headerMap.put(headerLine[0], headerLine[1]);
             }
         }
-    }
-
-    private String getContentDisposition() {
-        String body = this.requestMap.get("body");
-        if (body != null) {
-            return body.split("\r\n")[1].replace("Content-Disposition: form-data;", "");
-        }
-        return "";
     }
 
     private String parsePath(String request) {
@@ -126,6 +96,10 @@ public class HttpRequest {
     }
 
     public String get(String parameter) {
-        return requestMap.get(parameter);
+        return headerMap.get(parameter);
+    }
+
+    public byte[] getBody() {
+        return this.body;
     }
 }

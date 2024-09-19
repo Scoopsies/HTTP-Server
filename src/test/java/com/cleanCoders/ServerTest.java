@@ -65,7 +65,7 @@ public class ServerTest {
 
     @Test
     void handleInOutReturnsHelloRequest() throws IOException {
-        InputStream in = new ByteArrayInputStream("GET /hello HTTP/1.1\r\n".getBytes());
+        InputStream in = new ByteArrayInputStream("GET /hello HTTP/1.1\r\n\r\n".getBytes());
         OutputStream out = new ByteArrayOutputStream();
         server.handleInOut(in, out);
         assertTrue(out.toString().contains("<h1>Hello!</h1>"));
@@ -73,7 +73,7 @@ public class ServerTest {
 
     @Test
     void handleInOutReturnsGuessRequest() throws IOException {
-        InputStream in = new ByteArrayInputStream("GET /guess HTTP/1.1\r\n".getBytes());
+        InputStream in = new ByteArrayInputStream("GET /guess HTTP/1.1\r\n\r\n".getBytes());
         OutputStream out = new ByteArrayOutputStream();
         server.handleInOut(in, out);
         assertTrue(out.toString().contains("<h1>Guessing Game</h1>"));
@@ -81,7 +81,7 @@ public class ServerTest {
 
     @Test
     void handleInOutReturnsPingRequest() throws IOException {
-        InputStream in = new ByteArrayInputStream("GET /ping HTTP/1.1\r\n".getBytes());
+        InputStream in = new ByteArrayInputStream("GET /ping HTTP/1.1\r\n\r\n".getBytes());
         OutputStream out = new ByteArrayOutputStream();
         server.handleInOut(in, out);
         assertTrue(out.toString().contains("<h2>Ping</h2>"));

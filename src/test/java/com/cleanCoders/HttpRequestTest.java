@@ -6,22 +6,27 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HttpRequestTest {
     HttpRequest httpRequest;
     ByteArrayInputStream bais;
+    String body = """
+            --BOUNDARY\r
+            Content-Disposition: form-data; name="hello"\r
+            Content-Type: text/html\r
+            \r
+            <h1>hello</h1>\r
+            --BOUNDARY--\r
+            """;
     String request = """
-                GET /hello HTTP/1.1\r
-                Content-Type: text/html\r
-                Server: httpServer1.1\r
-                Content-Type: image/jpg\r
-                Content-Length: 53\r
-                \r
-                <h2>GET Form</h2>\r
-                <li>foo: 1</li>\r
-                <li>bar: 2</li>\r
-                """;
+            GET /hello HTTP/1.1\r
+            Content-Type: text/html\r
+            Server: httpServer1.1\r
+            Content-Type: multipart/form-data; boundary=BOUNDARY\r
+            Content-Length: %s\r
+            \r
+            %s""".formatted(body.length(), body);
 
     @BeforeEach
     void setup() throws IOException {
@@ -35,27 +40,17 @@ public class HttpRequestTest {
                 GET /hello HTTP/1.1\r
                 Content-Type: text/html\r
                 Server: httpServer1.1\r
-                Content-Type: image/jpg\r
-                Content-Length: 53\r
-                """;
+                Content-Type: multipart/form-data; boundary=BOUNDARY\r
+                Content-Length: %s\r
+                \r
+                """.formatted(body.length());
         assertEquals(header, httpRequest.get("header"));
     }
 
     @Test
-    void parseRequestPutsStartLineInMap() {
+    void parsesRequestStartLine() {
         var startLine = "GET /hello HTTP/1.1";
         assertEquals(startLine, httpRequest.get("startLine"));
-    }
-
-    @Test
-    void parseRequestPutsBodyInMap() {
-        var body = """
-                <h2>GET Form</h2>\r
-                <li>foo: 1</li>\r
-                <li>bar: 2</li>\r
-                """;
-
-        assertEquals(body, httpRequest.get("body"));
     }
 
     @Test
@@ -78,15 +73,50 @@ public class HttpRequestTest {
 
     @Test
     void parseRequestPutsContentTypeInMap() {
-        var server = "image/jpg";
+        var server = "multipart/form-data; boundary=BOUNDARY";
         assertEquals(server, httpRequest.get("Content-Type"));
     }
 
     @Test
-    void getRequestReadsGetRequest() {
-        httpRequest = new HttpRequest();
+    void returnsNullIfNoBoundary() throws IOException {
+        byte[] request = """
+            GET /hello HTTP/1.1\r
+            Content-Type: text/html\r
+            Server: httpServer1.1\r
+            Content-Length: 4\r
+            \r
+            text\r
+            """.getBytes();
+        ByteArrayInputStream bais = new ByteArrayInputStream(request);
+        HttpRequest httpRequest = new HttpRequest(bais);
+        assertNull(httpRequest.get("boundary"));
+    }
+
+    @Test
+    void returnsBoundaryIfExists() throws IOException {
+
         ByteArrayInputStream bais = new ByteArrayInputStream(request.getBytes());
-        String result = httpRequest.getRequest(bais);
-        assertEquals(request, result);
+        HttpRequest request = new HttpRequest(bais);
+        assertEquals("--BOUNDARY", request.get("boundary"));
+    }
+
+    @Test
+    void returnsNullForNoBody() throws IOException {
+        byte[] request = """
+            GET /hello HTTP/1.1\r
+            Content-Type: text/html\r
+            Server: httpServer1.1\r
+            \r
+            """.getBytes();
+        ByteArrayInputStream bais = new ByteArrayInputStream(request);
+        assertNull(new HttpRequest(bais).getBody());
+    }
+
+    @Test
+    void returnsBodyIfExists() throws IOException {
+        ByteArrayInputStream bais = new ByteArrayInputStream(request.getBytes());
+        byte[] result = new HttpRequest(bais).getBody();
+
+        assertArrayEquals(body.getBytes(), result);
     }
 }
