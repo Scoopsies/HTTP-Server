@@ -3,13 +3,10 @@ package com.cleanCoders.multipart;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BodyTest {
-
-    @Test
-    void parsesSinglePartBody() {
-        byte[] bodyBytes = """
+    byte[] boundary = "--BOUNDARY".getBytes();
+    byte[] bodyBytes = """
             --BOUNDARY\r
             Content-Disposition: form-data; name="hello"\r
             Content-Type: text/html\r
@@ -18,15 +15,14 @@ public class BodyTest {
             --BOUNDARY--\r
             """.getBytes();
 
-        byte[] boundary = "--BOUNDARY".getBytes();
-
+    @Test
+    void parsesSinglePartBody() {
         Body body = new Body(bodyBytes, boundary);
-
         assertArrayEquals("<h1>hello</h1>".getBytes(), body.getPart("hello").getContent());
     }
 
     @Test
-    void parsesFirstOfPartBody() {
+    void parsesDoublePartBody() {
         byte[] bodyBytes = """
             --BOUNDARY\r
             Content-Disposition: form-data; name="hello"\r
@@ -46,5 +42,6 @@ public class BodyTest {
         Body body = new Body(bodyBytes, boundary);
 
         assertArrayEquals("<h1>hello</h1>".getBytes(), body.getPart("hello").getContent());
+        assertArrayEquals("<h1>goodbye</h1>".getBytes(), body.getPart("goodbye").getContent());
     }
 }
