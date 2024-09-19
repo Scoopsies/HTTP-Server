@@ -101,4 +101,18 @@ public class MultiFormPartTest {
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
         assertEquals("text/plain", multiFormPart.getContentType());
     }
+
+    @Test
+    void parsesCustomContentType() {
+        byte[] body = """
+            --BOUNDARY\r
+            Content-Disposition: form-data; name="hello"\r
+            Content-Type: text/html\r
+            \r
+            <h1>hello</h1>\r
+            BOUNDARY--\r
+            """.getBytes();
+        MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
+        assertEquals("text/html", multiFormPart.getContentType());
+    }
 }

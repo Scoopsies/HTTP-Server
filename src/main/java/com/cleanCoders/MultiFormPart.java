@@ -6,20 +6,30 @@ import java.util.stream.Collectors;
 public class MultiFormPart {
     String name;
     String fileName;
+    String contentType = "text/plain";
     byte[] content;
 
     public MultiFormPart(byte[] body, byte[] boundary) {
         String stringBody = new String(body);
-        String contentDisposition = stringBody.lines()
-                .filter(line -> line.contains("Content-Disposition:"))
-                .collect(Collectors.joining());
+        String contentDisposition = parseHeader(stringBody, "Content-Disposition:");
+        String contentType = parseHeader(stringBody, "Content-Type:");
 
         this.name = parseContentDisposition(contentDisposition, "name");
 
-        if (contentDisposition.contains("filename="))
-            this.fileName = parseContentDisposition(contentDisposition, "filename");
-
         this.content = parseContent(body, boundary);
+
+        if (contentDisposition.contains("filename=")) {
+            this.fileName = parseContentDisposition(contentDisposition, "filename");
+        }
+
+        if (!contentType.isEmpty())
+            this.contentType = contentType.split("\\s")[1];
+    }
+
+    private static String parseHeader(String stringBody, String s) {
+        return stringBody.lines()
+                .filter(line -> line.contains(s))
+                .collect(Collectors.joining());
     }
 
     private byte[] parseContent(byte[] body, byte[] boundary) {
@@ -27,7 +37,6 @@ public class MultiFormPart {
         int contentStartIndex = indexOfFirst(body, doubleCrlf) + doubleCrlf.length;
         
         byte[] startOfContentToEnd = slice(body, contentStartIndex, body.length);
-        System.out.println("startOfContentToEnd: " + new String(startOfContentToEnd));
 
         int contentEndIndex = indexOfFirst(startOfContentToEnd, boundary) - 2;
 
@@ -81,6 +90,6 @@ public class MultiFormPart {
     }
 
     public String getContentType() {
-        return "text/plain";
+        return contentType;
     }
 }
