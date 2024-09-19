@@ -79,4 +79,8 @@ public class MultiFormPart {
     public byte[] getContent() {
         return this.content;
     }
+
+    public String getContentType() {
+        return "text/plain";
+    }
 }

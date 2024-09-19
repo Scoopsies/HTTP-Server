@@ -19,7 +19,6 @@ public class MultiFormPartTest {
     void parsesNameFromContentDisposition() {
         byte[] body = this.body.formatted("name=\"text\"", "").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         assertEquals("text", multiFormPart.getName());
     }
 
@@ -27,7 +26,6 @@ public class MultiFormPartTest {
     void parsesNameHelloFromContentDisposition() {
         byte[] body = this.body.formatted("name=\"hello\"", "").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         assertEquals("hello", multiFormPart.getName());
     }
 
@@ -35,7 +33,6 @@ public class MultiFormPartTest {
     void parsesOptionalFileNameATxtFromContentDisposition() {
         byte[] body = this.body.formatted("name=\"hello\"; filename=\"a.txt\"", "").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         assertEquals("a.txt", multiFormPart.getFileName());
     }
 
@@ -43,7 +40,6 @@ public class MultiFormPartTest {
     void parsesOptionalFileNameBTxtFromContentDisposition() {
         byte[] body = this.body.formatted("name=\"hello\"; filename=\"b.txt\"", "").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         assertEquals("b.txt", multiFormPart.getFileName());
     }
 
@@ -51,7 +47,6 @@ public class MultiFormPartTest {
     void parsesOptionalFileNameBeforeName() {
         byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         assertEquals("a.txt", multiFormPart.getFileName());
         assertEquals("hello", multiFormPart.getName());
     }
@@ -60,7 +55,6 @@ public class MultiFormPartTest {
     void getsTheIndexOfDoubleCRLFEndFromByteArray() {
         byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "content").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         byte[] doubleCRLF = "\r\n\r\n".getBytes();
         byte[] content = "\r\n\r\nContent".getBytes();
 
@@ -71,7 +65,6 @@ public class MultiFormPartTest {
     void getsTheIndexOfDoubleCRLFEndFromByteArrayWithSpace() {
         byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "content").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         byte[] doubleCRLF = "\r\n\r\n".getBytes();
         byte[] content = " \r\n\r\nContent".getBytes();
 
@@ -82,7 +75,6 @@ public class MultiFormPartTest {
     void findsFirstCrlfOfMany() {
         byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "content").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         byte[] doubleCRLF = "\r\n\r\n".getBytes();
         byte[] content = " \r\n\r\nContent\r\n\r\n".getBytes();
 
@@ -93,8 +85,6 @@ public class MultiFormPartTest {
     void parsesContentOfFile() {
         byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "content").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
-//        System.out.println(new String(multiFormPart.getContent()));
         assertArrayEquals("content".getBytes(), multiFormPart.getContent());
     }
 
@@ -102,8 +92,13 @@ public class MultiFormPartTest {
     void parsesContentOfFileAgain() {
         byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "different").getBytes();
         MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
-
         assertArrayEquals("different".getBytes(), multiFormPart.getContent());
     }
 
+    @Test
+    void parsesDefaultContentType() {
+        byte[] body = this.body.formatted("filename=\"a.txt\"; name=\"hello\"", "different").getBytes();
+        MultiFormPart multiFormPart = new MultiFormPart(body, boundary);
+        assertEquals("text/plain", multiFormPart.getContentType());
+    }
 }
