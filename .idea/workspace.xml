@@ -9,22 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Moved slice to ArrayUtils.">
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Using a buffered Input stream reader to read in data stream.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArrayUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ArrayUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/HttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/MultiFormPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Part.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MultiFormPartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/multipart/PartTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ArrayUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ArrayUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/HttpRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/HttpRequestTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/HelloRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/HelloRouteHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/ListingRouteHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/PingRouteHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726764121189</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Using a buffered Input stream reader to read in data stream.">
+      <option name="closed" value="true" />
+      <created>1726779295147</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1726779295147</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -499,6 +495,7 @@
     <MESSAGE value="Body can parse first of multiPart Form." />
     <MESSAGE value="Can parse All parts of MultiPart/form." />
     <MESSAGE value="Moved slice to ArrayUtils." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved slice to ArrayUtils." />
+    <MESSAGE value="Using a buffered Input stream reader to read in data stream." />
+    <option name="LAST_COMMIT_MESSAGE" value="Using a buffered Input stream reader to read in data stream." />
   </component>
 </project>

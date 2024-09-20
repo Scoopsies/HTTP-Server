@@ -4,6 +4,8 @@ import com.cleanCoders.HttpRequest;
 import com.cleanCoders.QueryParser;
 import com.cleanCoders.ResponseBuilder;
 import com.cleanCoders.RouteHandler;
+import com.cleanCoders.multipart.Body;
+import com.cleanCoders.multipart.Part;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -39,28 +41,14 @@ public class FormRouteHandler implements RouteHandler {
     }
 
     public String handlePostRequest(HttpRequest request) {
-        String fileName = request.get("file name");
-        String contentType = request.get("content type");
-        String body = request.get("body");
-        String boundary = request.get("boundary");
-        String bodyHeader = request.get("body header");
-        String CLRF = "\r\n";
-//        int fileSize = body.getBytes().length - boundary.getBytes().length - bodyHeader.getBytes().length - (CLRF.length() * 6);
-        String content = body.split("\r\n\r\n")[1].split(CLRF)[0];
-
-        System.out.println("Content: " + content);
-        System.out.println("boundary: " + boundary);
-        System.out.println("body.getBytes().length = " + body.getBytes().length);
-        System.out.println("content.getBytes().length = " + content.getBytes().length);
-        System.out.println("boundaty.getBytes().length = " + boundary.getBytes().length);
-        System.out.println("bodyHeader: " + bodyHeader.replace(CLRF, "CLRF"));
-        System.out.println(contentType);
+        byte[] bodyBytes = request.getBody();
+        byte[] boundary = request.get("boundary").getBytes();
+        Body body = new Body(bodyBytes, boundary);
+        Part part = body.getPart("file");
 
         return "<h2>POST Form</h2>"
-                + "<li>file name: " + fileName + "</li>"
-                + "<li>content type: " + contentType + "</li>"
-                + "<li>file size: " + content.getBytes().length + "</li>"
-                ;
-
+                + "<li>content type: " + part.getContentType() + "</li>"
+                + "<li>file name: " + part.getFileName() + "</li>"
+                + "<li>file size: " + part.getContent().length + "</li>";
     }
 }
