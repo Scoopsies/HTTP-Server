@@ -73,7 +73,7 @@ public class FormRouteHandlerTest {
     }
 
     @Test
-    void formPostContainsAFormPostHeader() throws IOException {
+    void formPostReturnsHeaderContentTypeNameAndSize() throws IOException {
         FormRouteHandler formRouteHandler = new FormRouteHandler();
         String body = """
                 --BOUNDARY\r
@@ -94,77 +94,8 @@ public class FormRouteHandlerTest {
         HttpRequest request = new HttpRequest(new ByteArrayInputStream(requestString.getBytes()));
         String result = formRouteHandler.handlePostRequest(request);
         assertTrue(result.contains("<h2>POST Form</h2>"));
-    }
-
-    @Test
-    void formPostContainsAContentType() throws IOException {
-        FormRouteHandler formRouteHandler = new FormRouteHandler();
-        String body = """
-                --BOUNDARY\r
-                Content-Disposition: form-data; name="file"; filename="autobot.jpg"\r
-                Content-Type: application/octet-stream\r
-                \r
-                content\r
-                --BOUNDARY--
-                """;
-
-        String requestString = """
-                POST /form HTTP/1.1\r
-                Content-Type: multipart/form-data; boundary=BOUNDARY\r
-                Content-Length: %s\r
-                \r
-                %s\r
-                """.formatted(body.length(), body);
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream(requestString.getBytes()));
-        String result = formRouteHandler.handlePostRequest(request);
         assertTrue(result.contains("<li>content type: application/octet-stream</li>"));
-    }
-
-    @Test
-    void formPostContainsAFileName() throws IOException {
-        FormRouteHandler formRouteHandler = new FormRouteHandler();
-        String body = """
-                --BOUNDARY\r
-                Content-Disposition: form-data; name="file"; filename="autobot.jpg"\r
-                Content-Type: application/octet-stream\r
-                \r
-                content\r
-                --BOUNDARY--
-                """;
-
-        String requestString = """
-                POST /form HTTP/1.1\r
-                Content-Type: multipart/form-data; boundary=BOUNDARY\r
-                Content-Length: %s\r
-                \r
-                %s\r
-                """.formatted(body.length(), body);
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream(requestString.getBytes()));
-        String result = formRouteHandler.handlePostRequest(request);
         assertTrue(result.contains("<li>file name: autobot.jpg</li>"));
-    }
-
-    @Test
-    void formPostContainsAFileSize() throws IOException {
-        FormRouteHandler formRouteHandler = new FormRouteHandler();
-        String body = """
-                --BOUNDARY\r
-                Content-Disposition: form-data; name="file"; filename="autobot.jpg"\r
-                Content-Type: application/octet-stream\r
-                \r
-                content\r
-                --BOUNDARY--
-                """;
-
-        String requestString = """
-                POST /form HTTP/1.1\r
-                Content-Type: multipart/form-data; boundary=BOUNDARY\r
-                Content-Length: %s\r
-                \r
-                %s\r
-                """.formatted(body.length(), body);
-        HttpRequest request = new HttpRequest(new ByteArrayInputStream(requestString.getBytes()));
-        String result = formRouteHandler.handlePostRequest(request);
         assertTrue(result.contains("<li>file size: 7</li>"));
     }
 
