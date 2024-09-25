@@ -31,7 +31,7 @@ public class Main {
         router.addRoute("/form", new FormRouteHandler());
         router.addRoute("/guess", new GuessRouteHandler());
 
-        Server server = new Server(router, parsedArgs.getPort(), serverSocket);
+        Server server = new Server(router, serverSocket);
 
         if (parsedArgs.getRunStatus()) {
             Printables.printStartupConfig(parsedArgs.getRoot(), parsedArgs.getPort());

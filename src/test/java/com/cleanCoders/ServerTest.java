@@ -32,7 +32,7 @@ public class ServerTest {
 
         ISocket[] clientSockets = {clientSocket};
         serverSocket = new FakeServerSocket(clientSockets);
-        server = new Server(router, 80, serverSocket);
+        server = new Server(router, serverSocket);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class ServerTest {
         OutputStream os2 = clientSocket2.getOutputStream();
         ISocket[] clientSockets = {clientSocket, clientSocket2};
         IServerSocket serverSocket = new FakeServerSocket(clientSockets);
-        Server server = new Server(router, 80, serverSocket);
+        Server server = new Server(router, serverSocket);
 
         server.run();
 

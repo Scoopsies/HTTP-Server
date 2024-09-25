@@ -5,14 +5,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class Server {
-    private int port = 80;
-    private boolean isRunnable = true;
     private final IServerSocket serverSocket;
     private final Router router;
+    final private boolean isRunning = true;
 
-    public Server(Router router, int port, IServerSocket serverSocket) {
+    public Server(Router router, IServerSocket serverSocket) {
         this.router = router;
-        this.port = port;
         this.serverSocket = serverSocket;
     }
 
@@ -21,7 +19,7 @@ public class Server {
     }
 
     public void handleIO() {
-        while (isRunnable) {
+        while (isRunning) {
             try{
                 listen(this.serverSocket);
             } catch (IOException ioe) {
@@ -35,14 +33,6 @@ public class Server {
         byte[] response = router.route(request);
         out.write(response);
         out.flush();
-    }
-
-    public int getPort() {
-        return this.port;
-    }
-
-    public IServerSocket getSocket() {
-        return this.serverSocket;
     }
 
     public void handleClient(ISocket socket) throws IOException {

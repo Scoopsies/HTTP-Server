@@ -15,9 +15,4 @@ public class ServerSocket implements IServerSocket {
         java.net.Socket client = socket.accept();
         return new Socket(client);
     }
-
-//    @Override
-//    public void close() throws IOException {
-//        socket.close();
-//    }
 }

@@ -20,9 +20,4 @@ public class FakeServerSocket implements IServerSocket{
 
         return sockets[requestAmt - 1];
     }
-
-//    @Override
-//    public void close() {
-//
-//    }
 }

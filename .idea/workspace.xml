@@ -9,32 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Refactored tests.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/IServerSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ISocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ServerSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Socket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FakeServerSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FakeSocket.java" afterDir="false" />
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Refactored server and its tests.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/QueryParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/QueryParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Router.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Part.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Part.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/GuessRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/GuessRouteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/PrintablesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/PrintablesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/QueryParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/QueryParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ResponseBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ResponseBuilderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/RouterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/RouterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FakeServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FakeServerSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/multipart/BodyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/multipart/BodyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -502,7 +484,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726851501224</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Refactored server and its tests.">
+      <option name="closed" value="true" />
+      <created>1727269883558</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1727269883558</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -517,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated ListingRouteHandler to select the proper route instead of hardcoding it." />
     <MESSAGE value="Built a guess route Handler that uses cookies for the guessing game." />
     <MESSAGE value="Cleaned up some formatting." />
     <MESSAGE value="Refactored handlePost and handleGet into their own methods." />
@@ -542,6 +531,7 @@
     <MESSAGE value="Using a buffered Input stream reader to read in data stream." />
     <MESSAGE value="Post working as intended." />
     <MESSAGE value="Refactored tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored tests." />
+    <MESSAGE value="Refactored server and its tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored server and its tests." />
   </component>
 </project>
