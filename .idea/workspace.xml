@@ -9,10 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Using a buffered Input stream reader to read in data stream.">
+    <list default="true" id="2b622b3f-ea28-4079-8df5-1ed2b9a75f2f" name="Changes" comment="Refactored tests.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/IServerSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ISocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ServerSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Socket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FakeServerSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FakeSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/FileContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/QueryParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/QueryParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/ResponseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Body.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Part.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/multipart/Part.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/FormRouteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/FormRouteHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/GuessRouteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cleanCoders/routes/GuessRouteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/FileContentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/PrintablesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/PrintablesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/QueryParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/QueryParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ResponseBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ResponseBuilderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/RouterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/RouterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/ServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/multipart/BodyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/multipart/BodyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/cleanCoders/routes/DefaultRouteHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +84,7 @@
     "JUnit.FileContentTest.testGetResourceTextFileContent_ValidResource.executor": "Run",
     "JUnit.FormRouteHandlerTest.executor": "Run",
     "JUnit.FormRouteHandlerTest.formPostContainsAContentType.executor": "Run",
+    "JUnit.FormRouteHandlerTest.formPostReturnsHeaderContentTypeNameAndSize.executor": "Run",
     "JUnit.FormRouteHandlerTest.helloRouteRespondsAsExpected.executor": "Run",
     "JUnit.GuessRouteHandlerTest.executor": "Run",
     "JUnit.HelloRouteHandlerTest.executor": "Run",
@@ -101,9 +124,11 @@
     "JUnit.ResponseBuilderTest.executor": "Run",
     "JUnit.RouterTest.executor": "Run",
     "JUnit.RouterTest.getPathRootExtractsCorrectPath.executor": "Run",
+    "JUnit.ServerTest.acceptsClientRequests.executor": "Run",
     "JUnit.ServerTest.executor": "Run",
     "JUnit.ServerTest.handleInOutReturnsPingRequest.executor": "Run",
     "JUnit.ServerTest.localSocketAddressCreated.executor": "Run",
+    "JUnit.ServerTest.respondsToClientRequest.executor": "Run",
     "JUnit.ServerTest.runListensForAConnection.executor": "Run",
     "JUnit.ServerTest.serverSocketCreatedAtPort80byDefault.executor": "Run",
     "JUnit.ServerTest.stopClosesTheConnectionToPort.executor": "Run",
@@ -125,6 +150,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.cleanCoders" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/testRoot" />
@@ -185,7 +213,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArrayUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
         <pattern>
@@ -194,28 +222,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.cleanCoders" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ArrayUtilsTest" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ServerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BodyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HttpServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cleanCoders.multipart.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cleanCoders.multipart" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.multipart.BodyTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HttpRequestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ServerTest.acceptsClientRequests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HttpServer" />
       <extension name="coverage">
         <pattern>
@@ -224,26 +237,43 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.cleanCoders" />
-      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.HttpRequestTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ServerTest" />
+      <option name="METHOD_NAME" value="acceptsClientRequests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerTest.respondsToClientRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HttpServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cleanCoders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cleanCoders" />
+      <option name="MAIN_CLASS_NAME" value="com.cleanCoders.ServerTest" />
+      <option name="METHOD_NAME" value="respondsToClientRequest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.ServerTest" />
+      <item itemvalue="JUnit.ServerTest.respondsToClientRequest" />
+      <item itemvalue="JUnit.ServerTest.acceptsClientRequests" />
       <item itemvalue="JUnit.All in HttpServer" />
-      <item itemvalue="JUnit.ArrayUtilsTest" />
-      <item itemvalue="JUnit.BodyTest" />
-      <item itemvalue="JUnit.HttpRequestTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in HttpServer" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.HttpRequestTest" />
-        <item itemvalue="JUnit.BodyTest" />
-        <item itemvalue="JUnit.ArrayUtilsTest" />
+        <item itemvalue="JUnit.ServerTest" />
+        <item itemvalue="JUnit.ServerTest.respondsToClientRequest" />
+        <item itemvalue="JUnit.ServerTest.acceptsClientRequests" />
       </list>
     </recent_temporary>
   </component>
@@ -456,7 +486,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726779295147</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Post working as intended.">
+      <option name="closed" value="true" />
+      <created>1726836345938</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1726836345938</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Refactored tests.">
+      <option name="closed" value="true" />
+      <created>1726851501224</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1726851501224</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -471,8 +517,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial Commit." />
-    <MESSAGE value="Added additional tests for formRoute, and gave QueryParser its own class." />
     <MESSAGE value="Updated ListingRouteHandler to select the proper route instead of hardcoding it." />
     <MESSAGE value="Built a guess route Handler that uses cookies for the guessing game." />
     <MESSAGE value="Cleaned up some formatting." />
@@ -496,6 +540,8 @@
     <MESSAGE value="Can parse All parts of MultiPart/form." />
     <MESSAGE value="Moved slice to ArrayUtils." />
     <MESSAGE value="Using a buffered Input stream reader to read in data stream." />
-    <option name="LAST_COMMIT_MESSAGE" value="Using a buffered Input stream reader to read in data stream." />
+    <MESSAGE value="Post working as intended." />
+    <MESSAGE value="Refactored tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored tests." />
   </component>
 </project>

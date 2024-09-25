@@ -21,7 +21,7 @@ public class GuessRouteHandler implements RouteHandler {
 
         } else {
             HashMap<String, Integer> cookieMap = parseCookie(request.get("Cookie"));
-            int guess = getGuess(request.get("body"));
+            int guess = getGuess(new String(request.getBody()));
             int answer = cookieMap.get("answer");
             int guesses = cookieMap.get("guesses") + 1;
             String message = getMessage(answer, guess, guesses);

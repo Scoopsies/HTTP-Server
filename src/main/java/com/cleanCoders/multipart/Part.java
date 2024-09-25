@@ -20,9 +20,8 @@ public class Part {
 
         this.content = parseContent(body, boundary);
 
-        if (contentDisposition.contains("filename=")) {
+        if (contentDisposition.contains("filename="))
             this.fileName = parseContentDisposition(contentDisposition, "filename");
-        }
 
         if (!contentType.isEmpty())
             this.contentType = contentType.split("\\s")[1];
@@ -37,11 +36,8 @@ public class Part {
     private byte[] parseContent(byte[] body, byte[] boundary) {
         final byte[] doubleCrlf = "\r\n\r\n".getBytes();
         int contentStartIndex = indexOfFirst(body, doubleCrlf) + doubleCrlf.length;
-        
         byte[] startOfContentToEnd = ArrayUtils.slice(body, contentStartIndex, body.length);
-
         int contentEndIndex = indexOfFirst(startOfContentToEnd, boundary) - 2;
-
         return ArrayUtils.slice(startOfContentToEnd, 0, contentEndIndex);
     }
 

@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class QueryParser {
 
-    public HashMap<String, String> parse(String filePath) {
+    public static HashMap<String, String> parse(String filePath) {
         HashMap<String, String> queryMap = new HashMap<>();
         String[] query = filePath.split("\\?");
 

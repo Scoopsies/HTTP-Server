@@ -47,30 +47,30 @@ public class FileContentTest {
     @Test
     void getContentTypeReturnsHTML() {
         String contentType = fileContent.getContentType("/hello/welcome.html");
-        assertEquals("Content-Type: text/html\r\n", contentType);
+        assertEquals("Content-Type: text/html", contentType);
     }
 
     @Test
     void getContentTypeReturnsPNG() {
         String contentType = fileContent.getContentType("/things/miata.png");
-        assertEquals("Content-Type: image/png\r\n", contentType);
+        assertEquals("Content-Type: image/png", contentType);
     }
 
     @Test
     void getContentTypeReturnsGIF() {
         String contentType = fileContent.getContentType("/things/miata.gif");
-        assertEquals("Content-Type: image/gif\r\n", contentType);
+        assertEquals("Content-Type: image/gif", contentType);
     }
 
     @Test
     void getContentTypeReturnsJPG() {
         String contentType = fileContent.getContentType("/things/miata.jpg");
-        assertEquals("Content-Type: image/jpeg\r\n", contentType);
+        assertEquals("Content-Type: image/jpeg", contentType);
     }
 
     @Test
     void getContentTypeReturnsPDF() {
         String contentType = fileContent.getContentType("/things/miata.pdf");
-        assertEquals("Content-Type: application/pdf\r\n", contentType);
+        assertEquals("Content-Type: application/pdf", contentType);
     }
 }

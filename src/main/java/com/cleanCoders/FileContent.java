@@ -86,6 +86,6 @@ public class FileContent {
             contentType = "text/html";
             System.out.println(ioe.getMessage());
         }
-        return "Content-Type: " + contentType + "\r\n";
+        return "Content-Type: " + contentType;
     }
 }

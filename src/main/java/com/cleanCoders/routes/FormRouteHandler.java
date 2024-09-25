@@ -23,9 +23,9 @@ public class FormRouteHandler implements RouteHandler {
         return rb.buildResponse(response.getBytes());
     }
 
-    public String handleGetRequest(HttpRequest request) {
+    public static String handleGetRequest(HttpRequest request) {
         String filePath = request.get("path");
-        var queryMap = new QueryParser().parse(filePath);
+        var queryMap = QueryParser.parse(filePath);
         var listItems = new StringBuilder();
 
         for (String key : queryMap.keySet()) {

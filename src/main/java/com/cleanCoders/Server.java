@@ -3,19 +3,17 @@ package com.cleanCoders;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.ServerSocket;
 
 public class Server {
     private int port = 80;
     private boolean isRunnable = true;
-    private ServerSocket serverSocket;
-    private Router router = new Router();
+    private final IServerSocket serverSocket;
+    private final Router router;
 
-    public Server(){}
-
-    public Server(Router router, int port) {
+    public Server(Router router, int port, IServerSocket serverSocket) {
         this.router = router;
         this.port = port;
+        this.serverSocket = serverSocket;
     }
 
     public void run() {
@@ -23,52 +21,43 @@ public class Server {
     }
 
     public void handleIO() {
-        try {
-            this.serverSocket = new ServerSocket(port);
-        } catch (IOException ioe) {
-            System.out.println(ioe.getMessage());
-        }
-
         while (isRunnable) {
-            try {
-                var clientSocket = this.serverSocket.accept();
-
-                // TODO - test me
-                new Thread(() -> {
-                    try {
-                        InputStream in = clientSocket.getInputStream();
-                        OutputStream out = clientSocket.getOutputStream();
-
-                        handleInOut(in, out);
-                        clientSocket.close();
-                    } catch (IOException ioe) {
-                        System.out.println(ioe.getMessage());
-                    }
-                }).start();
-
+            try{
+                listen(this.serverSocket);
             } catch (IOException ioe) {
-                System.out.println(ioe.getMessage());
+                ioe.printStackTrace();
             }
         }
     }
 
-     void handleInOut(InputStream in, OutputStream out) throws IOException {
+     void respond(InputStream in, OutputStream out) throws IOException {
         HttpRequest request = new HttpRequest(in);
         byte[] response = router.route(request);
         out.write(response);
         out.flush();
     }
 
-    public void stop() throws IOException {
-        isRunnable = false;
-        this.serverSocket.close();
-    }
-
     public int getPort() {
         return this.port;
     }
 
-    public ServerSocket getSocket() {
+    public IServerSocket getSocket() {
         return this.serverSocket;
+    }
+
+    public void handleClient(ISocket socket) throws IOException {
+        respond(socket.getInputStream(), socket.getOutputStream());
+        socket.close();
+    }
+
+    public void listen(IServerSocket serverSocket) throws IOException {
+        ISocket clientSocket = serverSocket.accept();
+        new Thread(() -> {
+            try {
+                handleClient(clientSocket);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
     }
 }

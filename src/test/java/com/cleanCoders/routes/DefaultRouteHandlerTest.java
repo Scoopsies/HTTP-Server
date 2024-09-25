@@ -21,18 +21,16 @@ public class DefaultRouteHandlerTest {
         defaultRouteHandler = new DefaultRouteHandler(root);
     }
 
-
-
     @Test
     void getResponseIfThereIsAnIndex() throws IOException {
-        var inputStream = new ByteArrayInputStream("GET /hello HTTP/1.1\r\n\r\n".getBytes());
+        var inputStream = new ByteArrayInputStream("GET /goodbye HTTP/1.1\r\n\r\n".getBytes());
         var response = defaultRouteHandler.getResponse(new HttpRequest(inputStream));
         var expected = """
             HTTP/1.1 200 OK\r
             Content-Type: text/html\r
             Server: httpServer\r
             \r
-            <h1>Hello!</h1>
+            <h1>Goodbye</h1>
             """;
         var result = new String(response);
 

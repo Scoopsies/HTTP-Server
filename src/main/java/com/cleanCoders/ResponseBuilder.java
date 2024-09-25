@@ -9,10 +9,9 @@ public class ResponseBuilder {
     public byte[] buildResponse(String status, String contentType, byte[] content) throws IOException {
         ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
         responseStream.write(buildResponseStatus(status).getBytes());
-        responseStream.write(contentType.getBytes());
+        responseStream.write((contentType + CLRF).getBytes());
         responseStream.write("Server: httpServer".getBytes());
-        responseStream.write(CLRF.getBytes());
-        responseStream.write(CLRF.getBytes());
+        responseStream.write((CLRF + CLRF).getBytes());
         responseStream.write(content);
         return responseStream.toByteArray();
     }
@@ -22,7 +21,7 @@ public class ResponseBuilder {
     }
 
     public byte[] buildResponse(byte[] content) throws IOException {
-        return buildResponse("Content-Type: text/html\r\n", content);
+        return buildResponse("Content-Type: text/html", content);
     }
 
     public String buildResponseStatus(String status) {

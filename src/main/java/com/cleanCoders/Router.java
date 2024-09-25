@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Router {
-    private final HashMap<String, RouteHandler> routes = new HashMap<>();
+    protected final HashMap<String, RouteHandler> routes = new HashMap<>();
     private RouteHandler defaultHandler = new DefaultRouteHandler(".");
 
     public void addRoute(String path, RouteHandler handler) {
