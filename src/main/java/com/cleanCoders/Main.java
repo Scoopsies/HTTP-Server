@@ -4,15 +4,7 @@ import com.cleanCoders.routes.*;
 
 import java.io.IOException;
 
-//public class RouterSpy extends Router {
-//
-//    public RouteHandler getRoute(String route) {
-//        return this.routes.get(route);
-//    }
-//}
-
 public class Main {
-
     private final Router router;
 
     public Main(Router router) {

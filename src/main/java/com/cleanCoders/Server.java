@@ -7,7 +7,6 @@ import java.io.OutputStream;
 public class Server {
     private final IServerSocket serverSocket;
     private final Router router;
-    final private boolean isRunning = true;
 
     public Server(Router router, IServerSocket serverSocket) {
         this.router = router;
@@ -19,7 +18,7 @@ public class Server {
     }
 
     public void handleIO() {
-        while (isRunning) {
+        while (true) {
             try{
                 listen(this.serverSocket);
             } catch (IOException ioe) {
