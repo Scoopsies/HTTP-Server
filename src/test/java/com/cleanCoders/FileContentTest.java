@@ -17,7 +17,7 @@ public class FileContentTest {
 
     @Test
     void getFileContentGetsHtmlFile() throws IOException {
-        String content = fileContent.getTextFileContent("/Users/scoops/Projects/HttpServer/testRoot/hello/index.html");
+        String content = fileContent.getTextFileContent(new java.io.File("testRoot/hello/index.html").getCanonicalPath());
         String expected = "<h1>Hello!</h1>\n";
         assertEquals(expected, content);
     }

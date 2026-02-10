@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -66,14 +67,12 @@ public class ArgParserTest {
     }
 
     @Test
-    void parseArgsXPrintsSystemSettings() {
+    void parseArgsXPrintsSystemSettings() throws IOException {
         String[] args = {"-x"};
         argParser.parseArgs(args);
-        var result = """
-                Example Server
-                Running on port: 80
-                Serving files from: /Users/scoops/Projects/HttpServer
-                """;
+        var result = "Example Server\n"
+                + "Running on port: 80\n"
+                + "Serving files from: " + new java.io.File(".").getCanonicalPath() + "\n";
         assertEquals(result, baos.toString());
     }
 

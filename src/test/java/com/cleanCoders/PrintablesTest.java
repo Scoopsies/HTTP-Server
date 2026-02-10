@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,23 +27,19 @@ public class PrintablesTest {
     }
 
     @Test
-    void printHelpMenuPrintsTheDefaultConfigMenu() {
-        String result = """
-                Example Server
-                Running on port: 80
-                Serving files from: /Users/scoops/Projects/HttpServer
-                """;
+    void printHelpMenuPrintsTheDefaultConfigMenu() throws IOException {
+        String result = "Example Server\n"
+                + "Running on port: 80\n"
+                + "Serving files from: " + new java.io.File(".").getCanonicalPath() + "\n";
         Printables.printStartupConfig(".", 80);
         assertEquals(result, baos.toString());
     }
 
     @Test
-    void printHelpMenuPrintsCustomSettingMenu() {
-        String result = """
-                Example Server
-                Running on port: 8080
-                Serving files from: /Users/scoops/Projects/HttpServer/src
-                """;
+    void printHelpMenuPrintsCustomSettingMenu() throws IOException {
+        String result = "Example Server\n"
+                + "Running on port: 8080\n"
+                + "Serving files from: " + new java.io.File("./src").getCanonicalPath() + "\n";
         Printables.printStartupConfig("./src", 8080);
         assertEquals(result, baos.toString());
     }
