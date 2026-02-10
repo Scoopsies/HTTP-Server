@@ -50,11 +50,41 @@ A fully functional HTTP/1.1 server built in Java using only `java.net.ServerSock
 - `ResponseBuilder` for composing HTTP responses with status codes, headers, and body
 - Comprehensive test suite using JUnit 5 with mock sockets and router spies
 
+### Extensibility
+
+The server is designed to be extended with new route handlers. Implement the `RouteHandler` interface, register your route with the `Router`, and you're up and running.
+
+This architecture also makes the server easy to embed in other JVM languages. For example, [clojure-server](https://github.com/Scoopsies/clojure-server) builds on top of this project to add a fully playable tic-tac-toe game with AI opponents, cookie-based game state, and PostgreSQL persistence; all by implementing a single new route handler in Clojure.
+
 ## Building & Running
+
+The easiest way to build and run the project is with [Maven](https://maven.apache.org/):
 
 ```
 mvn compile
-mvn exec:java -Dexec.mainClass="Main" -Dexec.args="-p 8080 -r /path/to/serve"
+java -cp target/classes com.cleanCoders.Main
+```
+
+You can also package it as a JAR:
+
+```
+mvn package
+java -cp target/HttpServer-1.0-SNAPSHOT.jar com.cleanCoders.Main
+```
+
+By default the server listens on port 80 and serves files from the current directory. Use flags to customize:
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-p <port>` | Set the listening port | `80` |
+| `-r <root>` | Set the root directory for file serving | `.` (current directory) |
+| `-h` | Print the help menu | |
+| `-x` | Print the startup configuration and exit | |
+
+A `testRoot` directory is included in the project with examples of many server features -- HTML pages, nested directories, directory listings, various MIME types (images, PDF, text), and 404 handling. To serve it on port 8080:
+
+```
+java -cp target/classes com.cleanCoders.Main -p 8080 -r ./testRoot
 ```
 
 ## Running Tests
